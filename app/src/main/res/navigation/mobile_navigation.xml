@@ -13,13 +13,13 @@
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.example.rewear.ui.dashboard.DashboardFragment"
+        android:name="com.example.rewear.ui.reform.ReformFragment"
         android:label="@string/title_reform"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_reform" />
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.example.rewear.ui.notifications.NotificationsFragment"
+        android:name="com.example.rewear.ui.my.MyFragment"
         android:label="@string/title_my"
-        tools:layout="@layout/fragment_notifications" />
+        tools:layout="@layout/fragment_my" />
 </navigation>
