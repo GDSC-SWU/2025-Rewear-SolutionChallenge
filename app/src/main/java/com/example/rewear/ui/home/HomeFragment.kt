@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.GridLayoutManager
+import com.example.rewear.R
 import com.example.rewear.databinding.FragmentHomeBinding
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
@@ -14,6 +16,9 @@ class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
+
+    private lateinit var clothesAdapter: ClothesApdater
+    private lateinit var clothesList: List<Clothes>
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -51,6 +56,49 @@ class HomeFragment : Fragment() {
 
         }
         return root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        clothesList = listOf(
+            Clothes(
+                R.drawable.cloth_example,
+                "Tops",
+                "Letter Open Hoodie",
+                "Mapo-dong",
+                "1m ago",
+                5
+            ),
+            Clothes(R.drawable.cloth_example, "Tops", "Layering T-shirt", "Mapo-dong", "1m ago", 5),
+            Clothes(
+                R.drawable.cloth_example,
+                "Tops",
+                "Letter Open Hoodie",
+                "Mapo-dong",
+                "1m ago",
+                5
+            ),
+            Clothes(R.drawable.cloth_example, "Tops", "Layering T-shirt", "Mapo-dong", "1m ago", 5),
+            Clothes(
+                R.drawable.cloth_example,
+                "Tops",
+                "Letter Open Hoodie",
+                "Mapo-dong",
+                "1m ago",
+                5
+            ),
+            Clothes(R.drawable.cloth_example, "Tops", "Layering T-shirt", "Mapo-dong", "1m ago", 5),
+        )
+        clothesAdapter = ClothesApdater(clothesList)
+        binding.clothesRecyclerView.layoutManager = GridLayoutManager(requireContext(), 2).apply {
+            spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
+                override fun getSpanSize(position: Int): Int {
+                    return 1
+                }
+            }
+        }
+        binding.clothesRecyclerView.adapter = clothesAdapter
     }
 
     override fun onDestroyView() {

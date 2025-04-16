@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.my.MyFragment">
+    tools:context=".ui.home.HomeFragment">
 
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:contentDescription="@string/scroll"
+        android:paddingBottom="100dp"
         android:fillViewport="true">
 
         <LinearLayout
@@ -224,9 +225,17 @@
                 android:fontFamily="@font/pretendard_bold"
                 android:paddingHorizontal="10dp"
                 android:paddingTop="20dp"
+                android:layout_marginStart="10dp"
                 android:text="@string/title_clothes_list"
                 android:textColor="@color/sub_black"
                 android:textSize="18sp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/clothesRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:padding="5dp" />
 
         </LinearLayout>
     </ScrollView>

@@ -6,4 +6,17 @@
     <color name="black">#000000</color>
     <color name="sub_black">#3E3E3E</color>
     <color name="card_background">#F7FAFF</color>
+    <color name="heart">#FF3466</color>
+    <color name="grayblack">#363636</color>
+    <color name="gray2">#B5B5B5</color>
+    <color name="tops_name">#4C6AFF</color>
+    <color name="tops_bg">#E2EAFB</color>
+    <color name="outer_name">#A2D713</color>
+    <color name="outer_bg">#F8FDEA</color>
+    <color name="bottoms_name">#56CED7</color>
+    <color name="bottoms_bg">#DDF5F7</color>
+    <color name="dress_name">#FD5592</color>
+    <color name="dress_bg">#FDEDF2</color>
+    <color name="skirt_name">#FF715B</color>
+    <color name="skirt_bg">#FFF1EF</color>
 </resources>
