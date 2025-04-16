@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">Rewear</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_reform">Reform</string>
+    <string name="title_my">My</string>
+    <string name="add_item">Add new item</string>
+    <string name="scroll">Scroll it</string>
+    <string name="title_clothes_list">Find Your Next Favorite</string>
 </resources>

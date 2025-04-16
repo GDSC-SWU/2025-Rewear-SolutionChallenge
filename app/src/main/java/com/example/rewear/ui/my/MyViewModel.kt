@@ -1,13 +1,13 @@
-package com.example.rewear.ui.dashboard
+package com.example.rewear.ui.my
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class DashboardViewModel : ViewModel() {
+class MyViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is dashboard Fragment"
+        value = "This is My Fragment"
     }
     val text: LiveData<String> = _text
 }

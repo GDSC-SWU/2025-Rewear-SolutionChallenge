@@ -1,22 +1,254 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment">
 
-    <TextView
-        android:id="@+id/text_home"
+    <ScrollView
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@string/scroll"
+        android:paddingBottom="100dp"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="8dp"
+                android:orientation="horizontal"
+                android:paddingHorizontal="16dp"
+                android:paddingTop="16dp"
+                android:paddingBottom="30dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/user_location"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="4dp"
+                        android:paddingEnd="4dp"
+                        android:text="Mapo-dong"
+                        android:textColor="@color/sub_black"
+                        android:textFontWeight="700"
+                        android:textSize="20sp" />
+
+                    <ImageView
+                        android:layout_width="21dp"
+                        android:layout_height="21dp"
+                        android:paddingStart="4dp"
+                        android:rotation="-90"
+                        android:src="@drawable/ic_arrow_down" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginEnd="20dp"
+                        android:src="@drawable/ic_search" />
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_alarm" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/card_background"
+                app:cardElevation="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/user_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/pretendard_bold"
+                        android:paddingHorizontal="10dp"
+                        android:text="Haneul,"
+                        android:textColor="@color/sub_black"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:id="@+id/user_message"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/pretendard_regular"
+                        android:paddingHorizontal="10dp"
+                        android:text="Begin your first swap\nor donation now!"
+                        android:textColor="@color/sub_black"
+                        android:textSize="24sp"
+                        android:visibility="gone" />
+
+                    <LinearLayout
+                        android:id="@+id/digit_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingHorizontal="10dp">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="4dp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="8dp"
+                                android:fontFamily="@font/pretendard_regular"
+                                android:text="Cut carbon with "
+                                android:textColor="@color/sub_black"
+                                android:textSize="24sp" />
+
+                            <TextView
+                                android:id="@+id/swap_digit_1"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_marginEnd="4dp"
+                                android:background="@drawable/digit_box_bg"
+                                android:fontFamily="@font/pretendard_extrabold"
+                                android:gravity="center"
+                                android:text="0"
+                                android:textColor="@color/blue"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/swap_digit_2"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_marginEnd="4dp"
+                                android:background="@drawable/digit_box_bg"
+                                android:fontFamily="@font/pretendard_extrabold"
+                                android:gravity="center"
+                                android:text="1"
+                                android:textColor="@color/blue"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/pretendard_regular"
+                                android:text="swaps"
+                                android:textColor="@color/sub_black"
+                                android:textSize="24sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="8dp"
+                                android:text="&amp;"
+                                android:textColor="@color/sub_black"
+                                android:textSize="24sp" />
+
+                            <TextView
+                                android:id="@+id/donation_digit_1"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_marginEnd="4dp"
+                                android:background="@drawable/digit_box_bg"
+                                android:fontFamily="@font/pretendard_extrabold"
+                                android:gravity="center"
+                                android:text="1"
+                                android:textColor="@color/blue"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/donation_digit_2"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_marginEnd="4dp"
+                                android:background="@drawable/digit_box_bg"
+                                android:fontFamily="@font/pretendard_extrabold"
+                                android:gravity="center"
+                                android:text="1"
+                                android:textColor="@color/blue"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="donations!"
+                                android:textColor="@color/sub_black"
+                                android:textSize="24sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginBottom="30dp"
+                        android:src="@drawable/banner" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/pretendard_bold"
+                android:paddingHorizontal="10dp"
+                android:paddingTop="20dp"
+                android:layout_marginStart="10dp"
+                android:text="@string/title_clothes_list"
+                android:textColor="@color/sub_black"
+                android:textSize="18sp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/clothesRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:padding="5dp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_add"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_gravity="end|bottom"
+        android:layout_marginEnd="35dp"
+        android:layout_marginBottom="110dp"
+        android:backgroundTint="@color/blue"
+        android:contentDescription="@string/add_item"
+        android:src="@drawable/ic_fab_add" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
