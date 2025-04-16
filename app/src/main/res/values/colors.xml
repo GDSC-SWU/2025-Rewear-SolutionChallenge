@@ -4,5 +4,6 @@
     <color name="lightblue">#E2EAFB</color>
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
-    <color name="location_text">#3E3E3E</color>
+    <color name="sub_black">#3E3E3E</color>
+    <color name="card_background">#F7FAFF</color>
 </resources>

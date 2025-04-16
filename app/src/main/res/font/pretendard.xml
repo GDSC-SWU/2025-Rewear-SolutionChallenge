@@ -20,4 +20,10 @@
         android:fontWeight="700"
         android:font="@font/pretendard_bold"/>
 
+    <font
+        android:fontStyle="normal"
+        android:fontWeight="800"
+        android:font="@font/pretendard_extrabold"/>
+
+
 </font-family>

@@ -7,7 +7,7 @@
     tools:context=".ui.my.MyFragment">
 
     <ScrollView
-        android:id="@+id/scrollView2"
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:contentDescription="@string/scroll"
@@ -16,15 +16,17 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp">
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="8dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:paddingHorizontal="16dp"
+                android:paddingTop="16dp"
+                android:paddingBottom="30dp">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -33,12 +35,13 @@
                     android:orientation="horizontal">
 
                     <TextView
+                        android:id="@+id/user_location"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingStart="4dp"
                         android:paddingEnd="4dp"
                         android:text="Mapo-dong"
-                        android:textColor="@color/location_text"
+                        android:textColor="@color/sub_black"
                         android:textFontWeight="700"
                         android:textSize="20sp" />
 
@@ -68,6 +71,162 @@
                         android:src="@drawable/ic_alarm" />
                 </LinearLayout>
             </LinearLayout>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/card_background"
+                app:cardElevation="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/user_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/pretendard_bold"
+                        android:paddingHorizontal="10dp"
+                        android:text="Haneul,"
+                        android:textColor="@color/sub_black"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:id="@+id/user_message"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/pretendard_regular"
+                        android:paddingHorizontal="10dp"
+                        android:text="Begin your first swap\nor donation now!"
+                        android:textColor="@color/sub_black"
+                        android:textSize="24sp"
+                        android:visibility="gone" />
+
+                    <LinearLayout
+                        android:id="@+id/digit_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingHorizontal="10dp">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="4dp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="8dp"
+                                android:fontFamily="@font/pretendard_regular"
+                                android:text="Cut carbon with "
+                                android:textColor="@color/sub_black"
+                                android:textSize="24sp" />
+
+                            <TextView
+                                android:id="@+id/swap_digit_1"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_marginEnd="4dp"
+                                android:background="@drawable/digit_box_bg"
+                                android:fontFamily="@font/pretendard_extrabold"
+                                android:gravity="center"
+                                android:text="0"
+                                android:textColor="@color/blue"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/swap_digit_2"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_marginEnd="4dp"
+                                android:background="@drawable/digit_box_bg"
+                                android:fontFamily="@font/pretendard_extrabold"
+                                android:gravity="center"
+                                android:text="1"
+                                android:textColor="@color/blue"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/pretendard_regular"
+                                android:text="swaps"
+                                android:textColor="@color/sub_black"
+                                android:textSize="24sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="8dp"
+                                android:text="&amp;"
+                                android:textColor="@color/sub_black"
+                                android:textSize="24sp" />
+
+                            <TextView
+                                android:id="@+id/donation_digit_1"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_marginEnd="4dp"
+                                android:background="@drawable/digit_box_bg"
+                                android:fontFamily="@font/pretendard_extrabold"
+                                android:gravity="center"
+                                android:text="1"
+                                android:textColor="@color/blue"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/donation_digit_2"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_marginEnd="4dp"
+                                android:background="@drawable/digit_box_bg"
+                                android:fontFamily="@font/pretendard_extrabold"
+                                android:gravity="center"
+                                android:text="1"
+                                android:textColor="@color/blue"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="donations!"
+                                android:textColor="@color/sub_black"
+                                android:textSize="24sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginBottom="30dp"
+                        android:src="@drawable/banner" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/pretendard_bold"
+                android:paddingHorizontal="10dp"
+                android:paddingTop="20dp"
+                android:text="@string/title_clothes_list"
+                android:textColor="@color/sub_black"
+                android:textSize="18sp" />
 
         </LinearLayout>
     </ScrollView>
