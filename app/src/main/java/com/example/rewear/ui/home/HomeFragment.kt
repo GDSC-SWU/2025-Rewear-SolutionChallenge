@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.rewear.R
 import com.example.rewear.databinding.FragmentHomeBinding
@@ -60,6 +61,20 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val navController = findNavController()
+
+        navController.currentBackStackEntry?.savedStateHandle
+            ?.getLiveData<String>("selectedAddress")
+            ?.observe(viewLifecycleOwner) { address ->
+                binding.userLocation.text = address
+            }
+
+        val clickListener = View.OnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_locationFragment)
+        }
+
+        binding.userLocation.setOnClickListener(clickListener)
+        binding.userLocationIc.setOnClickListener(clickListener)
 
         clothesList = listOf(
             Clothes(
@@ -100,6 +115,7 @@ class HomeFragment : Fragment() {
         }
         binding.clothesRecyclerView.adapter = clothesAdapter
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

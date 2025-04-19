@@ -6,4 +6,8 @@
     <string name="add_item">Add new item</string>
     <string name="scroll">Scroll it</string>
     <string name="title_clothes_list">Find Your Next Favorite</string>
+    <string name="back">Back to the Home Screen</string>
+    <string name="search">Search for an address</string>
+    <string name="use_current_location">Use current location</string>
+    <string name="clear">Clear</string>
 </resources>
