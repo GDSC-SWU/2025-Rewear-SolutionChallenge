@@ -11,8 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:contentDescription="@string/scroll"
-        android:paddingBottom="100dp"
-        android:fillViewport="true">
+        android:fillViewport="true"
+        android:paddingBottom="100dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -47,6 +47,7 @@
                         android:textSize="20sp" />
 
                     <ImageView
+                        android:id="@+id/user_location_ic"
                         android:layout_width="21dp"
                         android:layout_height="21dp"
                         android:paddingStart="4dp"
@@ -222,10 +223,10 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
                 android:fontFamily="@font/pretendard_bold"
                 android:paddingHorizontal="10dp"
                 android:paddingTop="20dp"
-                android:layout_marginStart="10dp"
                 android:text="@string/title_clothes_list"
                 android:textColor="@color/sub_black"
                 android:textSize="18sp" />

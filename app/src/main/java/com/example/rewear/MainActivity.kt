@@ -1,6 +1,8 @@
 package com.example.rewear
 
 import android.os.Bundle
+import android.util.Log
+import android.view.View
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -15,23 +17,33 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        Log.d("LocationFragment", "✅ 로그 출력 테스트!")
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val mActionBar=supportActionBar
-        mActionBar!!.hide()
 
-        val navView: BottomNavigationView = binding.navView
+        supportActionBar?.hide()
 
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
+
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            when (destination.id) {
+                R.id.navigation_home,
+                R.id.navigation_reform,
+                R.id.navigation_my -> {
+                    binding.navView.visibility = View.VISIBLE
+                }
+
+                else -> {
+                    binding.navView.visibility = View.GONE
+                }
+            }
+        }
         val appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.navigation_home, R.id.navigation_reform, R.id.navigation_my
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
-        navView.setupWithNavController(navController)
+        binding.navView.setupWithNavController(navController)
     }
 }
