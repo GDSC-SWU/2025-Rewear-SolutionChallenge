@@ -10,4 +10,12 @@
     <string name="search">Search for an address</string>
     <string name="use_current_location">Use current location</string>
     <string name="clear">Clear</string>
+    <string name="search_item">Search for items</string>
+    <string name="recent_searches">Recent Searches</string>
+    <string name="categories">Categories</string>
+    <string name="tops">Tops</string>
+    <string name="outer">Outer</string>
+    <string name="bottoms">Bottoms</string>
+    <string name="dresses">Dresses</string>
+    <string name="skirts">Skirts</string>
 </resources>
