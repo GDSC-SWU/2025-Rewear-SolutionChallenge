@@ -73,6 +73,12 @@ class HomeFragment : Fragment() {
             findNavController().navigate(R.id.action_homeFragment_to_locationFragment)
         }
 
+        val searchClickListener = View.OnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_searchFragment)
+        }
+
+        binding.icSearch.setOnClickListener(searchClickListener)
+
         binding.userLocation.setOnClickListener(clickListener)
         binding.userLocationIc.setOnClickListener(clickListener)
 
