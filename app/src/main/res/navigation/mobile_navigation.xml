@@ -17,6 +17,10 @@
         <action
             android:id="@+id/action_homeFragment_to_searchFragment"
             app:destination="@+id/searchFragment" />
+
+        <action
+            android:id="@+id/action_homeFragment_to_notificationFragment"
+            app:destination="@+id/notificationFragment" />
     </fragment>
 
 
@@ -44,4 +48,10 @@
         android:name="com.example.rewear.ui.search.SearchFragment"
         android:label="Search"
         tools:layout="@layout/fragment_search"/>
+
+    <fragment
+        android:id="@+id/notificationFragment"
+        android:name="com.example.rewear.ui.home.NotificationFragment"
+        android:label="Notification"
+        tools:layout="@layout/fragment_notification"/>
 </navigation>
