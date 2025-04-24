@@ -18,4 +18,7 @@
     <string name="bottoms">Bottoms</string>
     <string name="dresses">Dresses</string>
     <string name="skirts">Skirts</string>
+    <string name="notifications">Notifications</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

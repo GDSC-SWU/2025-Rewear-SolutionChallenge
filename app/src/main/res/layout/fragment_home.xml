@@ -69,6 +69,7 @@
                         android:src="@drawable/ic_search"/>
 
                     <ImageView
+                        android:id="@+id/ic_notification"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:src="@drawable/ic_alarm" />

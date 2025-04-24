@@ -57,4 +57,5 @@ dependencies {
     implementation(libs.cardview)
     implementation(libs.google.maps)
     implementation(libs.google.location)
+    implementation(libs.androidx.viewpager2)
 }

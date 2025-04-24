@@ -31,4 +31,6 @@
     <color name="skirt_name">#FF715B</color>
     <color name="skirt_bg">#FFF1EF</color>
     <color name="hint_color">#C0C0C0</color>
+    <color name="tab_unselected">#8991A6</color>
+    <color name="border_line">#F6F6F6</color>
 </resources>

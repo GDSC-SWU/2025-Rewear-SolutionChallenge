@@ -45,9 +45,9 @@ class SearchFragment : Fragment() {
                 binding.recentSearches.visibility = View.GONE
             }
         }
-        binding.resentSearchRecyclerView.layoutManager =
+        binding.recentSearchRecyclerView.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        binding.resentSearchRecyclerView.adapter = adapter
+        binding.recentSearchRecyclerView.adapter = adapter
 
         binding.recentSearches.visibility =
             if (recentSearchList.isEmpty()) View.GONE else View.VISIBLE
