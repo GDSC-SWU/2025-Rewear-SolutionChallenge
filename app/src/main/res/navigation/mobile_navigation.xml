@@ -21,6 +21,10 @@
         <action
             android:id="@+id/action_homeFragment_to_notificationFragment"
             app:destination="@+id/notificationFragment" />
+
+        <action
+            android:id="@+id/action_homeFragment_to_registrationFragment"
+            app:destination="@+id/registrationFragment" />
     </fragment>
 
 
@@ -54,4 +58,10 @@
         android:name="com.example.rewear.ui.home.NotificationFragment"
         android:label="Notification"
         tools:layout="@layout/fragment_notification"/>
+
+    <fragment
+        android:id="@+id/registrationFragment"
+        android:name="com.example.rewear.ui.swap.RegistrationFragment"
+        android:label="Registration"
+        tools:layout="@layout/fragment_registration"/>
 </navigation>

@@ -54,7 +54,7 @@ class HomeFragment : Fragment() {
 
         val fab: FloatingActionButton = binding.fabAdd
         fab.setOnClickListener {
-
+            findNavController().navigate(R.id.action_homeFragment_to_registrationFragment)
         }
         return root
     }

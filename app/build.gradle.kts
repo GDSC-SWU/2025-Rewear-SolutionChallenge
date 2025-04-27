@@ -58,4 +58,5 @@ dependencies {
     implementation(libs.google.maps)
     implementation(libs.google.location)
     implementation(libs.androidx.viewpager2)
+    implementation(libs.glide)
 }
