@@ -28,7 +28,6 @@
     </fragment>
 
 
-
     <fragment
         android:id="@+id/navigation_reform"
         android:name="com.example.rewear.ui.reform.ReformFragment"
@@ -45,23 +44,32 @@
         android:id="@+id/locationFragment"
         android:name="com.example.rewear.ui.location.LocationFragment"
         android:label="Location"
-        tools:layout="@layout/fragment_location"/>
+        tools:layout="@layout/fragment_location" />
 
     <fragment
         android:id="@+id/searchFragment"
         android:name="com.example.rewear.ui.search.SearchFragment"
         android:label="Search"
-        tools:layout="@layout/fragment_search"/>
+        tools:layout="@layout/fragment_search" />
 
     <fragment
         android:id="@+id/notificationFragment"
         android:name="com.example.rewear.ui.home.NotificationFragment"
         android:label="Notification"
-        tools:layout="@layout/fragment_notification"/>
+        tools:layout="@layout/fragment_notification" />
 
     <fragment
         android:id="@+id/registrationFragment"
         android:name="com.example.rewear.ui.swap.RegistrationFragment"
         android:label="Registration"
-        tools:layout="@layout/fragment_registration"/>
+        tools:layout="@layout/fragment_registration" />
+    <action
+        android:id="@+id/action_registrationFragment_to_aiCategoryProcessingFragment"
+        app:destination="@+id/aiCategoryProcessingFragment" />
+
+    <fragment
+        android:id="@+id/aiCategoryProcessingFragment"
+        android:name="com.example.rewear.ui.swap.AICategoryProcessingFragment"
+        android:label="AI Category"
+        tools:layout="@layout/fragment_ai_category_processing" />
 </navigation>

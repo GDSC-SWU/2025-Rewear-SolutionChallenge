@@ -8,10 +8,15 @@ import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.rewear.databinding.FragmentRegistrationBinding
+import java.util.ArrayList
+import com.example.rewear.R
+
 
 class RegistrationFragment : Fragment() {
 
@@ -20,11 +25,45 @@ class RegistrationFragment : Fragment() {
 
     private val selectedImageUris = mutableListOf<Uri>()
     private lateinit var galleryAdapter: GalleryAdapter
+    private lateinit var imagePickerLauncher: ActivityResultLauncher<Intent>
 
     companion object {
         private const val REQUEST_CODE_PICK_IMAGES = 1001
         private const val MAX_SELECTION = 5
     }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        imagePickerLauncher =
+            registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+                if (result.resultCode == Activity.RESULT_OK) {
+                    val data = result.data
+                    val imageUris= mutableListOf<Uri>()
+
+                    if (data?.clipData != null) {
+                        val count = data.clipData!!.itemCount.coerceAtMost(MAX_SELECTION)
+                        for (i in 0 until count) {
+                            imageUris.add(data.clipData!!.getItemAt(i).uri)
+                        }
+
+                    } else if (data?.data != null) {
+                        imageUris.add(data.data!!)
+                    }
+
+                    val bundle=Bundle().apply{
+                        putParcelableArrayList("image_uris", ArrayList(imageUris))
+                    }
+
+                    findNavController().navigate(R.id.action_registrationFragment_to_aiCategoryProcessingFragment,bundle)
+                    galleryAdapter.notifyDataSetChanged()
+                    updateImageCounter()
+
+                    binding.aiBubble.visibility=View.GONE
+                }
+            }
+    }
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -46,7 +85,6 @@ class RegistrationFragment : Fragment() {
         }
         galleryAdapter = GalleryAdapter(selectedImageUris) {
             updateImageCounter()
-            checkAIBubbleVisibility()
         }
         binding.galleryRecyclerView.apply {
             layoutManager =
@@ -54,6 +92,14 @@ class RegistrationFragment : Fragment() {
             adapter = galleryAdapter
         }
         updateImageCounter()
+
+        binding.category.setOnClickListener {
+            val bottomSheetFragment = CategoryBottomSheetFragment() { selectedCategoryName,selectedCategoryId ->
+                binding.categoryEditText.text = selectedCategoryName
+            }
+            bottomSheetFragment.show(parentFragmentManager, bottomSheetFragment.tag)
+        }
+
     }
 
     private fun openGallery() {
@@ -62,48 +108,19 @@ class RegistrationFragment : Fragment() {
                 putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
                 type = "image/*"
             }
-        startActivityForResult(
-            Intent.createChooser(intent, "Select Pictures"),
-            REQUEST_CODE_PICK_IMAGES
-        )
+        imagePickerLauncher.launch(Intent.createChooser(intent, "Select Pictures"))
     }
 
-    @Deprecated("Deprecated in Java")
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-
-        if (requestCode == REQUEST_CODE_PICK_IMAGES && resultCode == Activity.RESULT_OK) {
-            data?.let {
-                selectedImageUris.clear()
-
-                if (it.clipData != null) {
-                    val count = it.clipData!!.itemCount.coerceAtMost(MAX_SELECTION)
-                    for (i in 0 until count) {
-                        val imageUri = it.clipData!!.getItemAt(i).uri
-                        selectedImageUris.add(imageUri)
-                    }
-                } else if (it.data != null) {
-                    selectedImageUris.add(it.data!!)
-                }
-                galleryAdapter.notifyDataSetChanged()
-                updateImageCounter()
-                checkAIBubbleVisibility()
-            }
-        }
-    }
 
     private fun updateImageCounter() {
         val count = selectedImageUris.size
         binding.imageCounter.text = "$count/$MAX_SELECTION"
     }
 
-    private fun checkAIBubbleVisibility() {
-        binding.aiBubble.visibility =
-            if (selectedImageUris.isNotEmpty()) View.GONE else View.VISIBLE
-    }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
 }
+

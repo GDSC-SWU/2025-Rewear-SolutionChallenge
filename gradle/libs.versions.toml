@@ -36,6 +36,7 @@ google-location = { module = "com.google.android.gms:play-services-location", ve
 androidx-viewpager2 = { group = "androidx.viewpager2", name = "viewpager2", version.ref = "viewpager2" }
 glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "glide" }
 
+
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }

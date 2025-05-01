@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/category_bottom_sheet"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bottom_sheet_background"
+    android:elevation="8dp"
+    android:orientation="vertical"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent">
+
+    <View
+        android:layout_width="56dp"
+        android:layout_height="7dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginVertical="16dp"
+        android:background="@drawable/rounded_search_bar"
+        android:backgroundTint="@color/lightgray" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/knit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="15dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/pretendard_medium"
+            android:paddingStart="50dp"
+            android:text="@string/knit"
+            android:textColor="@color/sub_black"
+            android:textSize="15sp" />
+
+        <ImageView
+            android:id="@+id/knitCheck"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="15dp"
+            android:src="@drawable/ic_check_blue"
+            android:visibility="gone"
+            app:tint="@color/main2" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/sweatshirt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="15dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/pretendard_medium"
+            android:paddingStart="50dp"
+            android:text="@string/sweatshirt"
+            android:textColor="@color/sub_black"
+            android:textSize="15sp" />
+
+        <ImageView
+            android:id="@+id/sweatshirtCheck"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="15dp"
+            android:src="@drawable/ic_check_blue"
+            android:visibility="gone"
+            app:tint="@color/main2" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/shirts"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="15dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/pretendard_medium"
+            android:paddingStart="50dp"
+            android:text="@string/shirt"
+            android:textColor="@color/sub_black"
+            android:textSize="15sp" />
+
+        <ImageView
+            android:id="@+id/shirtsCheck"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="15dp"
+            android:src="@drawable/ic_check_blue"
+            android:visibility="gone"
+            app:tint="@color/main2" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/category_border" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/zip_up_hoodie"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="15dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/pretendard_medium"
+            android:paddingStart="50dp"
+            android:text="@string/zip_up_hoodie"
+            android:textColor="@color/sub_black"
+            android:textSize="15sp" />
+
+        <ImageView
+            android:id="@+id/zipUpHoodieCheck"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="15dp"
+            android:src="@drawable/ic_check_blue"
+            android:visibility="gone"
+            app:tint="@color/main2" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/puffer_jacket"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="15dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/pretendard_medium"
+            android:paddingStart="50dp"
+            android:text="@string/puffer_jacket"
+            android:textColor="@color/sub_black"
+            android:textSize="15sp" />
+
+        <ImageView
+            android:id="@+id/pufferJacketCheck"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="15dp"
+            android:src="@drawable/ic_check_blue"
+            android:visibility="gone"
+            app:tint="@color/main2" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/jacket"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="15dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/pretendard_medium"
+            android:paddingStart="50dp"
+            android:text="@string/jacket"
+            android:textColor="@color/sub_black"
+            android:textSize="15sp" />
+
+        <ImageView
+            android:id="@+id/jacketCheck"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="15dp"
+            android:src="@drawable/ic_check_blue"
+            android:visibility="gone"
+            app:tint="@color/main2" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/category_border" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/shorts"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="15dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/pretendard_medium"
+            android:paddingStart="50dp"
+            android:text="@string/shorts"
+            android:textColor="@color/sub_black"
+            android:textSize="15sp" />
+
+        <ImageView
+            android:id="@+id/shortsCheck"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="15dp"
+            android:src="@drawable/ic_check_blue"
+            android:visibility="gone"
+            app:tint="@color/main2" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/jean"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="15dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/pretendard_medium"
+            android:paddingStart="50dp"
+            android:text="@string/jeans"
+            android:textColor="@color/sub_black"
+            android:textSize="15sp" />
+
+        <ImageView
+            android:id="@+id/jeanCheck"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="15dp"
+            android:src="@drawable/ic_check_blue"
+            android:visibility="gone"
+            app:tint="@color/main2" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/sweatpants"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="15dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/pretendard_medium"
+            android:paddingStart="50dp"
+            android:text="@string/sweatpants"
+            android:textColor="@color/sub_black"
+            android:textSize="15sp" />
+
+        <ImageView
+            android:id="@+id/sweatpantsCheck"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="15dp"
+            android:src="@drawable/ic_check_blue"
+            android:visibility="gone"
+            app:tint="@color/main2" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/category_border" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/dress"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="15dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/pretendard_medium"
+            android:paddingStart="50dp"
+            android:text="@string/dress"
+            android:textColor="@color/sub_black"
+            android:textSize="15sp" />
+
+        <ImageView
+            android:id="@+id/dressCheck"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="15dp"
+            android:src="@drawable/ic_check_blue"
+            android:visibility="gone"
+            app:tint="@color/main2" />
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/category_border" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/skirt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="15dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/pretendard_medium"
+            android:paddingStart="50dp"
+            android:text="@string/skirt"
+            android:textColor="@color/sub_black"
+            android:textSize="15sp" />
+
+        <ImageView
+            android:id="@+id/skirtCheck"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="15dp"
+            android:src="@drawable/ic_check_blue"
+            android:visibility="gone"
+            app:tint="@color/main2" />
+
+
+    </LinearLayout>
+
+</LinearLayout>

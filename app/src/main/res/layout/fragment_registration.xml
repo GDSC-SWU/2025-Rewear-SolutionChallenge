@@ -86,10 +86,121 @@
                 android:id="@+id/galleryRecyclerView"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:layout_marginHorizontal="16dp"/>
+                android:layout_marginHorizontal="8dp"
+                android:layout_weight="1" />
         </LinearLayout>
 
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="@font/pretendard_medium"
+            android:text="@string/title"
+            android:textColor="@color/sub_black"
+            android:textSize="15sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/pretendard_medium"
+            android:text="@string/required"
+            android:textColor="@color/required"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginHorizontal="13dp"
+        android:layout_marginVertical="5dp"
+        android:background="@drawable/rounded_search_bar"
+        android:backgroundTint="@color/lightgray_bar"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="12dp">
+
+        <EditText
+            android:id="@+id/titleEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:hint="@string/title"
+            android:inputType="text"
+            android:paddingStart="8dp"
+            android:textColorHint="@color/lightgray_text" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="@font/pretendard_medium"
+            android:text="@string/category"
+            android:textColor="@color/sub_black"
+            android:textSize="15sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/pretendard_medium"
+            android:text="@string/required"
+            android:textColor="@color/required"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/category"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginHorizontal="13dp"
+        android:layout_marginVertical="5dp"
+        android:background="@drawable/category_bg"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="12dp">
+
+        <TextView
+            android:id="@+id/categoryEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:fontFamily="@font/pretendard_medium"
+            android:hint="@string/category"
+            android:paddingStart="8dp"
+            android:textColorHint="@color/sub_black"
+            android:textSize="15dp" />
+
+        <ImageView
+            android:id="@+id/category_ic"
+            android:layout_width="21dp"
+            android:layout_height="21dp"
+            android:paddingStart="4dp"
+            android:rotation="-90"
+            android:src="@drawable/ic_arrow_down"
+            app:tint="@color/arrow_gray" />
+    </LinearLayout>
+
 
 </LinearLayout>
