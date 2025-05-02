@@ -35,4 +35,9 @@
     <string name="skirt">Skirt</string>
     <string name="analyzing_category">Analyzing category</string>
     <string name="please_wait">Please wait while the analysis is completed</string>
+    <string name="description">Description</string>
+    <string name="description_hint">Describe the condition and details of your item.</string>
+    <string name="swap_method">Swap Method</string>
+    <string name="in_person_trade">In-person Trade</string>
+    <string name="shipping_trade">Shipping Trade</string>
 </resources>

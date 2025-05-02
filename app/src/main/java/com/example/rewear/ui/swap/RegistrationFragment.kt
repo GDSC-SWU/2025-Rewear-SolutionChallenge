@@ -13,10 +13,8 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.rewear.databinding.FragmentRegistrationBinding
-import java.util.ArrayList
 import com.example.rewear.R
-
+import com.example.rewear.databinding.FragmentRegistrationBinding
 
 class RegistrationFragment : Fragment() {
 
@@ -39,27 +37,31 @@ class RegistrationFragment : Fragment() {
             registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
                 if (result.resultCode == Activity.RESULT_OK) {
                     val data = result.data
-                    val imageUris= mutableListOf<Uri>()
-
+                    val imageUris = mutableListOf<Uri>()
+                    selectedImageUris.clear()
                     if (data?.clipData != null) {
                         val count = data.clipData!!.itemCount.coerceAtMost(MAX_SELECTION)
                         for (i in 0 until count) {
-                            imageUris.add(data.clipData!!.getItemAt(i).uri)
+                            selectedImageUris.add(data.clipData!!.getItemAt(i).uri)
                         }
 
                     } else if (data?.data != null) {
-                        imageUris.add(data.data!!)
+                        selectedImageUris.add(data.data!!)
                     }
 
-                    val bundle=Bundle().apply{
-                        putParcelableArrayList("image_uris", ArrayList(imageUris))
+                    val bundle = Bundle().apply {
+                        putParcelableArrayList("image_uris", ArrayList(selectedImageUris))
                     }
 
-                    findNavController().navigate(R.id.action_registrationFragment_to_aiCategoryProcessingFragment,bundle)
+                    findNavController().navigate(
+                        R.id.action_registrationFragment_to_aiCategoryProcessingFragment,
+                        bundle
+                    )
+
+
                     galleryAdapter.notifyDataSetChanged()
                     updateImageCounter()
-
-                    binding.aiBubble.visibility=View.GONE
+                    binding.aiBubble.visibility = View.GONE
                 }
             }
     }
@@ -76,6 +78,10 @@ class RegistrationFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        if (selectedImageUris.isNotEmpty()) {
+            binding.aiBubble.visibility = View.GONE
+        }
         binding.BtnClose.setOnClickListener {
 
             findNavController().popBackStack()
@@ -94,10 +100,27 @@ class RegistrationFragment : Fragment() {
         updateImageCounter()
 
         binding.category.setOnClickListener {
-            val bottomSheetFragment = CategoryBottomSheetFragment() { selectedCategoryName,selectedCategoryId ->
-                binding.categoryEditText.text = selectedCategoryName
-            }
+            val bottomSheetFragment =
+                CategoryBottomSheetFragment() { selectedCategoryName, selectedCategoryId ->
+                    binding.categoryEditText.text = selectedCategoryName
+
+                    if (selectedCategoryName.isNotBlank()) {
+                        binding.category.setBackgroundResource(R.drawable.category_bg_selected)
+                    } else {
+                        binding.category.setBackgroundResource(R.drawable.category_bg)
+                    }
+                }
             bottomSheetFragment.show(parentFragmentManager, bottomSheetFragment.tag)
+        }
+
+        binding.inPerson.setOnClickListener {
+            binding.inPerson.setBackgroundResource(R.drawable.swap_method_selected)
+            binding.shipping.setBackgroundResource(R.drawable.swap_method)
+        }
+
+        binding.shipping.setOnClickListener {
+            binding.shipping.setBackgroundResource(R.drawable.swap_method_selected)
+            binding.shipping.setBackgroundResource(R.drawable.swap_method)
         }
 
     }

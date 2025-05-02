@@ -136,10 +136,13 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@android:color/transparent"
+            android:fontFamily="@font/pretendard_semibold"
             android:hint="@string/title"
             android:inputType="text"
             android:paddingStart="8dp"
-            android:textColorHint="@color/lightgray_text" />
+            android:textColor="@color/grayblack"
+            android:textColorHint="@color/lightgray_text"
+            android:textSize="14sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -202,5 +205,88 @@
             app:tint="@color/arrow_gray" />
     </LinearLayout>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="5dp"
+        android:fontFamily="@font/pretendard_medium"
+        android:text="@string/description"
+        android:textColor="@color/sub_black"
+        android:textSize="15sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="152dp"
+        android:layout_marginHorizontal="13dp"
+        android:layout_marginVertical="5dp"
+        android:background="@drawable/rounded_search_bar"
+        android:backgroundTint="@color/lightgray_bar"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="12dp">
+
+        <EditText
+            android:id="@+id/descriptionEditText"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:fontFamily="@font/pretendard_medium"
+            android:gravity="top"
+            android:hint="@string/description_hint"
+            android:inputType="textMultiLine"
+            android:paddingStart="8dp"
+            android:paddingTop="12dp"
+            android:textColor="@color/sub_black"
+            android:textColorHint="@color/lightgray_text"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="5dp"
+        android:fontFamily="@font/pretendard_medium"
+        android:text="@string/swap_method"
+        android:textColor="@color/sub_black"
+        android:textSize="15sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingHorizontal="15dp"
+        android:paddingVertical="5dp">
+
+        <TextView
+            android:id="@+id/inPerson"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/swap_method"
+            android:fontFamily="@font/pretendard_regular"
+            android:paddingHorizontal="12dp"
+            android:layout_marginEnd="10dp"
+            android:paddingVertical="6dp"
+            android:text="@string/in_person_trade"
+            android:textColor="@color/sub_black"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/shipping"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/swap_method"
+            android:fontFamily="@font/pretendard_regular"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="6dp"
+            android:text="@string/shipping_trade"
+            android:textColor="@color/sub_black"
+            android:textSize="14sp"
+            android:clickable="false"/>
+    </LinearLayout>
 
 </LinearLayout>

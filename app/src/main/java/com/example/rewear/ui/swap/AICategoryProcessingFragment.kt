@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.rewear.R
 
 class AICategoryProcessingFragment : Fragment() {
 
@@ -21,6 +22,7 @@ class AICategoryProcessingFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return super.onCreateView(inflater, container, savedInstanceState)
+        return inflater.inflate(R.layout.fragment_ai_category_processing, container, false)
     }
+
 }
