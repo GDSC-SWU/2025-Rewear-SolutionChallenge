@@ -123,6 +123,12 @@ class RegistrationFragment : Fragment() {
             binding.shipping.setBackgroundResource(R.drawable.swap_method)
         }
 
+        val clickListener = View.OnClickListener {
+            findNavController().navigate(R.id.action_registrationFragment_to_locationFragment)
+        }
+        binding.swapLocationIcon.setOnClickListener(clickListener)
+        binding.swapLocationEditText.setOnClickListener(clickListener)
+
     }
 
     private fun openGallery() {
