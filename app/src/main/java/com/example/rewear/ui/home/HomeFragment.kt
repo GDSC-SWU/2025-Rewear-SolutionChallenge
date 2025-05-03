@@ -18,8 +18,8 @@ class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var clothesAdapter: ClothesApdater
-    private lateinit var clothesList: List<Clothes>
+    private lateinit var clothesAdapter: ClothesAdapter
+    private lateinit var clothesList: MutableList<Clothes>
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -54,7 +54,7 @@ class HomeFragment : Fragment() {
 
         val fab: FloatingActionButton = binding.fabAdd
         fab.setOnClickListener {
-
+            findNavController().navigate(R.id.action_homeFragment_to_registrationFragment)
         }
         return root
     }
@@ -63,10 +63,18 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val navController = findNavController()
 
+
         navController.currentBackStackEntry?.savedStateHandle
             ?.getLiveData<String>("selectedAddress")
             ?.observe(viewLifecycleOwner) { address ->
-                binding.userLocation.text = address
+                if (!address.isNullOrBlank()) {
+                    binding.userLocation.text = address
+                }
+            }
+        navController.currentBackStackEntry?.savedStateHandle
+            ?.getLiveData<Clothes>("newClothes")
+            ?.observe(viewLifecycleOwner) { newClothes ->
+                clothesAdapter.addItem(newClothes)
             }
 
         val clickListener = View.OnClickListener {
@@ -86,7 +94,7 @@ class HomeFragment : Fragment() {
         binding.userLocation.setOnClickListener(clickListener)
         binding.userLocationIc.setOnClickListener(clickListener)
 
-        clothesList = listOf(
+        clothesList = mutableListOf(
             Clothes(
                 R.drawable.cloth_example,
                 "Tops",
@@ -115,7 +123,7 @@ class HomeFragment : Fragment() {
             ),
             Clothes(R.drawable.cloth_example, "Tops", "Layering T-shirt", "Mapo-dong", "1m ago", 5),
         )
-        clothesAdapter = ClothesApdater(clothesList)
+        clothesAdapter = ClothesAdapter(clothesList)
         binding.clothesRecyclerView.layoutManager = GridLayoutManager(requireContext(), 2).apply {
             spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
                 override fun getSpanSize(position: Int): Int {
@@ -124,6 +132,7 @@ class HomeFragment : Fragment() {
             }
         }
         binding.clothesRecyclerView.adapter = clothesAdapter
+
     }
 
 

@@ -1,5 +1,7 @@
 package com.example.rewear.ui.home
 
+import java.io.Serializable
+
 data class Clothes (
     val imageResId:Int,
     val label:String,
@@ -7,4 +9,4 @@ data class Clothes (
     val location:String,
     val timeAgo:String,
     val likeCount:Int
-)
+):Serializable

@@ -19,6 +19,28 @@
     <string name="dresses">Dresses</string>
     <string name="skirts">Skirts</string>
     <string name="notifications">Notifications</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title">Title</string>
+    <string name="required">*</string>
+    <string name="category">Category</string>
+    <string name="knit">Tops-knit</string>
+    <string name="sweatshirt">Tops-sweatshirt</string>
+    <string name="shirt">Tops-shirt</string>
+    <string name="zip_up_hoodie">Outer-zip-up hoodie</string>
+    <string name="puffer_jacket">Outer-Puffer jacket</string>
+    <string name="jacket">Outer-jacket</string>
+    <string name="shorts">Bottoms-shorts</string>
+    <string name="jeans">Bottoms-jeans</string>
+    <string name="sweatpants">Bottoms-sweatpants</string>
+    <string name="dress">Dress</string>
+    <string name="skirt">Skirt</string>
+    <string name="analyzing_category">Analyzing category</string>
+    <string name="please_wait">Please wait while the analysis is completed</string>
+    <string name="description">Description</string>
+    <string name="description_hint">Describe the condition and details of your item.</string>
+    <string name="swap_method">Swap Method</string>
+    <string name="in_person_trade">In-person Trade</string>
+    <string name="shipping_trade">Shipping Trade</string>
+    <string name="add_location">Add Location</string>
+    <string name="upload_pictures">Upload pictures first</string>
+    <string name="register">Register</string>
 </resources>

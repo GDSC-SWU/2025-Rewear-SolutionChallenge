@@ -10,4 +10,9 @@
         <item name="fontFamily">@font/pretendard_semibold</item>
         <item name="textAllCaps">false</item>
     </style>
+
+    <style name="RoundedImageView" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">7dp</item>
+    </style>
 </resources>

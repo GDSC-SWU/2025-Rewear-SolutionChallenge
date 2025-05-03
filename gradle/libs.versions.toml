@@ -16,7 +16,7 @@ navigationUiKtx = "2.6.0"
 googleMaps = "18.2.0"
 googleLocation = "21.0.1"
 viewpager2 = "1.0.0"
-tablayout = "1.12.0"
+glide="4.16.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -34,6 +34,8 @@ androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation
 google-maps = { module = "com.google.android.gms:play-services-maps", version.ref = "googleMaps" }
 google-location = { module = "com.google.android.gms:play-services-location", version.ref = "googleLocation" }
 androidx-viewpager2 = { group = "androidx.viewpager2", name = "viewpager2", version.ref = "viewpager2" }
+glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "glide" }
+
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
