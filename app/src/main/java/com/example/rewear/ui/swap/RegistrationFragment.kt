@@ -19,6 +19,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.rewear.R
 import com.example.rewear.databinding.FragmentRegistrationBinding
+import com.example.rewear.ui.home.Clothes
 
 class RegistrationFragment : Fragment() {
 
@@ -169,6 +170,21 @@ class RegistrationFragment : Fragment() {
         }
         binding.swapAddLocation.setOnClickListener(clickListener)
         binding.swapLocationIcon.setOnClickListener(clickListener)
+
+        binding.BtnSubmit.setOnClickListener{
+            val newClothes= Clothes(
+                R.drawable.cloth_example,
+                binding.categoryEditText.text.toString(),
+                binding.titleEditText.text.toString(),
+                binding.swapLocationText.text.toString(),
+                "just now",
+                0
+
+            )
+            findNavController().previousBackStackEntry?.savedStateHandle?.set("newClothes",newClothes)
+
+            findNavController().popBackStack()
+        }
 
     }
 

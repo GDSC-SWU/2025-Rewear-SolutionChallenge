@@ -5,8 +5,14 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.rewear.databinding.ItemClothesBinding
 
-class ClothesApdater(private val clothesList: List<Clothes>):
-        RecyclerView.Adapter<ClothesApdater.ClothesViewHolder>(){
+class ClothesAdapter(private var clothesList: MutableList<Clothes>):
+        RecyclerView.Adapter<ClothesAdapter.ClothesViewHolder>(){
+
+
+    fun addItem(newClothes: Clothes){
+        clothesList.add(0,newClothes)
+        notifyItemInserted(0)
+    }
 
     inner class ClothesViewHolder(val binding:ItemClothesBinding):
             RecyclerView.ViewHolder(binding.root)
