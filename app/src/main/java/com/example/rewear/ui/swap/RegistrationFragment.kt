@@ -79,6 +79,14 @@ class RegistrationFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val navController = findNavController()
+
+        navController.currentBackStackEntry?.savedStateHandle
+            ?.getLiveData<String>("selectedAddress")
+            ?.observe(viewLifecycleOwner) { address ->
+                binding.swapLocationText.text = address
+            }
+
         if (selectedImageUris.isNotEmpty()) {
             binding.aiBubble.visibility = View.GONE
         }
@@ -126,8 +134,8 @@ class RegistrationFragment : Fragment() {
         val clickListener = View.OnClickListener {
             findNavController().navigate(R.id.action_registrationFragment_to_locationFragment)
         }
+        binding.swapAddLocation.setOnClickListener(clickListener)
         binding.swapLocationIcon.setOnClickListener(clickListener)
-        binding.swapLocationEditText.setOnClickListener(clickListener)
 
     }
 

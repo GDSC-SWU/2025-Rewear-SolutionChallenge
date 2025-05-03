@@ -292,24 +292,24 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center_vertical"
         android:orientation="horizontal">
 
 
         <LinearLayout
-            android:layout_width="320dp"
+            android:id="@+id/swapAddLocation"
+            android:layout_width="350dp"
             android:layout_height="48dp"
             android:layout_marginHorizontal="13dp"
-            android:layout_marginVertical="5dp"
+            android:layout_marginVertical="10dp"
             android:background="@drawable/rounded_search_bar"
             android:backgroundTint="@color/lightgray_bar"
             android:gravity="center_vertical"
             android:orientation="horizontal"
             android:paddingHorizontal="12dp">
 
-            <EditText
-                android:id="@+id/swapLocationEditText"
-                android:layout_width="320dp"
+            <TextView
+                android:id="@+id/swapLocationText"
+                android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
                 android:fontFamily="@font/pretendard_medium"
@@ -325,7 +325,7 @@
             android:id="@+id/swapLocationIcon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
+            android:layout_marginTop="20dp"
             android:src="@drawable/ic_swap_location" />
     </LinearLayout>
 
