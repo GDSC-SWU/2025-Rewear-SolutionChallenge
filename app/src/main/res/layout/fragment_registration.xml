@@ -309,8 +309,13 @@
 
             <TextView
                 android:id="@+id/swapLocationText"
-                android:layout_width="350dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:ellipsize="none"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:scrollHorizontally="true"
                 android:background="@android:color/transparent"
                 android:fontFamily="@font/pretendard_medium"
                 android:hint="@string/add_location"
@@ -328,5 +333,7 @@
             android:layout_marginTop="20dp"
             android:src="@drawable/ic_swap_location" />
     </LinearLayout>
+
+
 
 </LinearLayout>

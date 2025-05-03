@@ -5,9 +5,11 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
+import android.text.method.ScrollingMovementMethod
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
@@ -87,6 +89,11 @@ class RegistrationFragment : Fragment() {
                 binding.swapLocationText.text = address
             }
 
+        binding.swapLocationText.apply {
+            movementMethod = ScrollingMovementMethod.getInstance()
+
+        }
+
         if (selectedImageUris.isNotEmpty()) {
             binding.aiBubble.visibility = View.GONE
         }
@@ -108,6 +115,15 @@ class RegistrationFragment : Fragment() {
         updateImageCounter()
 
         binding.category.setOnClickListener {
+            if (selectedImageUris.isEmpty()) {
+                val toastMessage = layoutInflater.inflate(R.layout.swap_toast_message, null)
+                val toastFinal = Toast(requireContext())
+                toastFinal.duration = Toast.LENGTH_SHORT
+                toastFinal.view = toastMessage
+                toastFinal.show()
+                return@setOnClickListener
+
+            }
             val bottomSheetFragment =
                 CategoryBottomSheetFragment() { selectedCategoryName, selectedCategoryId ->
                     binding.categoryEditText.text = selectedCategoryName
