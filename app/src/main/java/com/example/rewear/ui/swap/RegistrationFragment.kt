@@ -12,6 +12,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.ContextCompat
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -26,6 +28,10 @@ class RegistrationFragment : Fragment() {
     private val selectedImageUris = mutableListOf<Uri>()
     private lateinit var galleryAdapter: GalleryAdapter
     private lateinit var imagePickerLauncher: ActivityResultLauncher<Intent>
+
+    private var isTitleFilled = false
+    private var isCategorySelected = false
+    private var isImageSelected = false
 
     companion object {
         private const val REQUEST_CODE_PICK_IMAGES = 1001
@@ -64,6 +70,9 @@ class RegistrationFragment : Fragment() {
                     galleryAdapter.notifyDataSetChanged()
                     updateImageCounter()
                     binding.aiBubble.visibility = View.GONE
+
+                    isImageSelected = selectedImageUris.isNotEmpty()
+                    updateSubmitButtonState()
                 }
             }
     }
@@ -88,6 +97,11 @@ class RegistrationFragment : Fragment() {
             ?.observe(viewLifecycleOwner) { address ->
                 binding.swapLocationText.text = address
             }
+
+        binding.titleEditText.addTextChangedListener {
+            isTitleFilled = it.toString().isNotEmpty()
+            updateSubmitButtonState()
+        }
 
         binding.swapLocationText.apply {
             movementMethod = ScrollingMovementMethod.getInstance()
@@ -127,6 +141,9 @@ class RegistrationFragment : Fragment() {
             val bottomSheetFragment =
                 CategoryBottomSheetFragment() { selectedCategoryName, selectedCategoryId ->
                     binding.categoryEditText.text = selectedCategoryName
+
+                    isCategorySelected = selectedCategoryName.isNotBlank()
+                    updateSubmitButtonState()
 
                     if (selectedCategoryName.isNotBlank()) {
                         binding.category.setBackgroundResource(R.drawable.category_bg_selected)
@@ -168,6 +185,11 @@ class RegistrationFragment : Fragment() {
     private fun updateImageCounter() {
         val count = selectedImageUris.size
         binding.imageCounter.text = "$count/$MAX_SELECTION"
+    }
+
+    private fun updateSubmitButtonState() {
+        val isReady = isTitleFilled && isCategorySelected && isImageSelected
+        binding.BtnSubmit.isEnabled = isReady
     }
 
 
