@@ -38,7 +38,8 @@ google-location = { module = "com.google.android.gms:play-services-location", ve
 androidx-viewpager2 = { group = "androidx.viewpager2", name = "viewpager2", version.ref = "viewpager2" }
 glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "glide" }
 dotsindicator={module="com.tbuonomo:dotsindicator",version.ref="dotsindicator"}
-photo-view={group="com.github.chrisbanes",name="PhotoView",version.ref="photoView"}
+photo-view = { group = "com.github.Baseflow", name = "PhotoView", version.ref = "photoView" }
+
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

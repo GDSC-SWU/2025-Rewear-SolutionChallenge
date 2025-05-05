@@ -11,6 +11,7 @@ import com.example.rewear.databinding.DialogEnlargedImageBinding
 import com.example.rewear.databinding.FragmentDetailBinding
 import com.example.rewear.ui.home.Clothes
 
+
 class DetailFragment : Fragment() {
     private var _binding: FragmentDetailBinding? = null
     private val binding get() = _binding!!
@@ -36,6 +37,7 @@ class DetailFragment : Fragment() {
         clothes?.let {selectedClothes->
             binding.titleText.text = selectedClothes.name
             binding.categoryText.text = selectedClothes.label
+            binding.locationText.text=selectedClothes.location
 
             val imageAdapter = DetailImageAdapter(selectedClothes.imageList) {imageUrl ->
                 showEnlargedImage(imageUrl)
