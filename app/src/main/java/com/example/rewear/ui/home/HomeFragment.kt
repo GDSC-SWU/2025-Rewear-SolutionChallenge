@@ -96,34 +96,64 @@ class HomeFragment : Fragment() {
 
         clothesList = mutableListOf(
             Clothes(
-                R.drawable.cloth_example,
+                imageList = listOf(
+                    R.drawable.example3,
+                    R.drawable.cloth_example,
+                    R.drawable.cloth_example2
+                ),
                 "Tops",
                 "Letter Open Hoodie",
                 "Mapo-dong",
                 "1m ago",
                 5
             ),
-            Clothes(R.drawable.cloth_example, "Tops", "Layering T-shirt", "Mapo-dong", "1m ago", 5),
             Clothes(
-                R.drawable.cloth_example,
-                "Tops",
-                "Letter Open Hoodie",
-                "Mapo-dong",
-                "1m ago",
-                5
+                imageList = listOf(
+                    R.drawable.cloth_example,
+                    R.drawable.cloth_example2
+                ), "Tops", "Layering T-shirt", "Mapo-dong", "1m ago", 5
             ),
-            Clothes(R.drawable.cloth_example, "Tops", "Layering T-shirt", "Mapo-dong", "1m ago", 5),
             Clothes(
-                R.drawable.cloth_example,
+                imageList = listOf(
+                    R.drawable.cloth_example,
+                    R.drawable.cloth_example2
+                ),
                 "Tops",
                 "Letter Open Hoodie",
                 "Mapo-dong",
                 "1m ago",
                 5
             ),
-            Clothes(R.drawable.cloth_example, "Tops", "Layering T-shirt", "Mapo-dong", "1m ago", 5),
+            Clothes(
+                imageList = listOf(
+                    R.drawable.cloth_example,
+                    R.drawable.cloth_example2
+                ), "Tops", "Layering T-shirt", "Mapo-dong", "1m ago", 5
+            ),
+            Clothes(
+                imageList = listOf(
+                    R.drawable.cloth_example,
+                    R.drawable.cloth_example2
+                ),
+                "Tops",
+                "Letter Open Hoodie",
+                "Mapo-dong",
+                "1m ago",
+                5
+            ),
+            Clothes(
+                imageList = listOf(
+                    R.drawable.cloth_example,
+                    R.drawable.cloth_example2
+                ), "Tops", "Layering T-shirt", "Mapo-dong", "1m ago", 5
+            ),
         )
-        clothesAdapter = ClothesAdapter(clothesList)
+        clothesAdapter = ClothesAdapter(clothesList) { clickedItem ->
+            val bundle = Bundle().apply {
+                putParcelable("selectedClothes", clickedItem)
+            }
+            findNavController().navigate(R.id.action_homeFragment_to_detailFragment, bundle)
+        }
         binding.clothesRecyclerView.layoutManager = GridLayoutManager(requireContext(), 2).apply {
             spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
                 override fun getSpanSize(position: Int): Int {

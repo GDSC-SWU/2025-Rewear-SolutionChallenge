@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     id("kotlin-kapt")
+    id("kotlin-parcelize")
 }
 
 android {
@@ -59,4 +60,6 @@ dependencies {
     implementation(libs.google.location)
     implementation(libs.androidx.viewpager2)
     implementation(libs.glide)
+    implementation(libs.dotsindicator)
+    implementation(libs.photo.view)
 }

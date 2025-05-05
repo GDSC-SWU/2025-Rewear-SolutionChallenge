@@ -171,9 +171,12 @@ class RegistrationFragment : Fragment() {
         binding.swapAddLocation.setOnClickListener(clickListener)
         binding.swapLocationIcon.setOnClickListener(clickListener)
 
-        binding.BtnSubmit.setOnClickListener{
-            val newClothes= Clothes(
-                R.drawable.cloth_example,
+        binding.BtnSubmit.setOnClickListener {
+            val newClothes = Clothes(
+                imageList = listOf(
+                    R.drawable.cloth_example,
+                    R.drawable.cloth_example2
+                ),
                 binding.categoryEditText.text.toString(),
                 binding.titleEditText.text.toString(),
                 binding.swapLocationText.text.toString(),
@@ -181,7 +184,10 @@ class RegistrationFragment : Fragment() {
                 0
 
             )
-            findNavController().previousBackStackEntry?.savedStateHandle?.set("newClothes",newClothes)
+            findNavController().previousBackStackEntry?.savedStateHandle?.set(
+                "newClothes",
+                newClothes
+            )
 
             findNavController().popBackStack()
         }
