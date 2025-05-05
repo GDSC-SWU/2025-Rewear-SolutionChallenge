@@ -106,13 +106,21 @@ class HomeFragment : Fragment() {
                 "Mapo-dong",
                 "1m ago",
                 5,
-                description = "description"
+                description = "description",
+                "In-person Trade",
             ),
             Clothes(
                 imageList = listOf(
                     R.drawable.cloth_example,
                     R.drawable.cloth_example2
-                ), "Tops", "Layering T-shirt", "Mapo-dong", "1m ago", 5, description = "description"
+                ),
+                "Tops",
+                "Layering T-shirt",
+                "Mapo-dong",
+                "1m ago",
+                5,
+                description = "description",
+                "In-person Trade",
             ),
             Clothes(
                 imageList = listOf(
@@ -123,13 +131,21 @@ class HomeFragment : Fragment() {
                 "Letter Open Hoodie",
                 "Mapo-dong",
                 "1m ago",
-                5, description = "description"
+                5, description = "description",
+                "In-person Trade",
             ),
             Clothes(
                 imageList = listOf(
                     R.drawable.cloth_example,
                     R.drawable.cloth_example2
-                ), "Tops", "Layering T-shirt", "Mapo-dong", "1m ago", 5, description = "description"
+                ),
+                "Tops",
+                "Layering T-shirt",
+                "Mapo-dong",
+                "1m ago",
+                5,
+                description = "description",
+                "In-person Trade",
             ),
             Clothes(
                 imageList = listOf(
@@ -140,13 +156,21 @@ class HomeFragment : Fragment() {
                 "Letter Open Hoodie",
                 "Mapo-dong",
                 "1m ago",
-                5, description = "description"
+                5, description = "description",
+                "In-person Trade",
             ),
             Clothes(
                 imageList = listOf(
                     R.drawable.cloth_example,
                     R.drawable.cloth_example2
-                ), "Tops", "Layering T-shirt", "Mapo-dong", "1m ago", 5, description = "description"
+                ),
+                "Tops",
+                "Layering T-shirt",
+                "Mapo-dong",
+                "1m ago",
+                5,
+                description = "description",
+                "In-person Trade",
             ),
         )
         clothesAdapter = ClothesAdapter(clothesList) { clickedItem ->

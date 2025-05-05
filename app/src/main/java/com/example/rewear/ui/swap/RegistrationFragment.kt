@@ -26,6 +26,7 @@ class RegistrationFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val selectedImageUris = mutableListOf<Uri>()
+    private var selectedSwapMethod:String?=null
     private lateinit var galleryAdapter: GalleryAdapter
     private lateinit var imagePickerLauncher: ActivityResultLauncher<Intent>
 
@@ -157,11 +158,13 @@ class RegistrationFragment : Fragment() {
         binding.inPerson.setOnClickListener {
             binding.inPerson.setBackgroundResource(R.drawable.swap_method_selected)
             binding.shipping.setBackgroundResource(R.drawable.swap_method)
+            selectedSwapMethod="In-person Trade"
         }
 
         binding.shipping.setOnClickListener {
             binding.shipping.setBackgroundResource(R.drawable.swap_method_selected)
             binding.shipping.setBackgroundResource(R.drawable.swap_method)
+            selectedSwapMethod="Shipping Trade"
         }
 
         val clickListener = View.OnClickListener {
@@ -182,7 +185,7 @@ class RegistrationFragment : Fragment() {
                 "just now",
                 0,
                 binding.descriptionEditText.text.toString(),
-
+                swapMethod = selectedSwapMethod?:""
             )
             findNavController().previousBackStackEntry?.savedStateHandle?.set(
                 "newClothes",

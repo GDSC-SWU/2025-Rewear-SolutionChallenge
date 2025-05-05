@@ -39,6 +39,7 @@ class DetailFragment : Fragment() {
             binding.locationText.text=selectedClothes.location
             binding.clothesLabel.text=selectedClothes.label
             binding.descriptionText.text=selectedClothes.description
+            binding.swapMethod.text=selectedClothes.swapMethod
 
             val imageAdapter = DetailImageAdapter(selectedClothes.imageList) {imageUrl ->
                 showEnlargedImage(imageUrl)
