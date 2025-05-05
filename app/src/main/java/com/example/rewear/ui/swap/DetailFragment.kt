@@ -36,8 +36,9 @@ class DetailFragment : Fragment() {
         val clothes = arguments?.getParcelable<Clothes>("selectedClothes")
         clothes?.let {selectedClothes->
             binding.titleText.text = selectedClothes.name
-            binding.categoryText.text = selectedClothes.label
             binding.locationText.text=selectedClothes.location
+            binding.clothesLabel.text=selectedClothes.label
+            binding.descriptionText.text=selectedClothes.description
 
             val imageAdapter = DetailImageAdapter(selectedClothes.imageList) {imageUrl ->
                 showEnlargedImage(imageUrl)

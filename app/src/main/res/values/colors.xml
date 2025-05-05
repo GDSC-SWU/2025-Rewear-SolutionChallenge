@@ -39,5 +39,6 @@
     <color name="category_stroke">#F5F6F8</color>
     <color name="toast_message">#8991A6</color>
     <color name="register_button_inactive">#6B778BEF</color>
+    <color name="description_gray">#AAA9A9</color>
 
 </resources>

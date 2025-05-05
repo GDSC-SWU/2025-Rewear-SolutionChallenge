@@ -12,7 +12,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.content.ContextCompat
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -181,7 +180,8 @@ class RegistrationFragment : Fragment() {
                 binding.titleEditText.text.toString(),
                 binding.swapLocationText.text.toString(),
                 "just now",
-                0
+                0,
+                binding.descriptionEditText.text.toString(),
 
             )
             findNavController().previousBackStackEntry?.savedStateHandle?.set(

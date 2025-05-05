@@ -65,64 +65,104 @@
 
     <ImageView
         android:id="@+id/user_profile"
-        android:layout_width="52dp"
-        android:layout_height="52dp"
-        android:layout_marginStart="11dp"
-        android:layout_marginTop="350dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="370dp"
         android:background="@drawable/circle_background"
+        android:clipToOutline="true"
         android:scaleType="centerCrop"
         android:src="@drawable/profile"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/detail_img"
-        android:clipToOutline="true"/>
+        app:layout_constraintTop_toTopOf="@+id/detail_img" />
 
     <TextView
         android:id="@+id/user_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="LeeHayan"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="375dp"
         android:fontFamily="@font/pretendard_semibold"
-        android:textSize="14sp"
+        android:text="LeeHayan"
         android:textColor="@color/sub_black"
+        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="@+id/user_profile"
-        app:layout_constraintTop_toTopOf="@+id/detail_img"
-        android:layout_marginStart="65dp"
-        android:layout_marginTop="355dp"/>
+        app:layout_constraintTop_toTopOf="@+id/detail_img" />
 
     <TextView
         android:id="@+id/locationText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="location"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="395dp"
         android:fontFamily="@font/pretendard_regular"
-        android:textSize="11sp"
+        android:text="location"
         android:textColor="@color/gray2"
+        android:textSize="11sp"
         app:layout_constraintStart_toStartOf="@+id/user_profile"
-        app:layout_constraintTop_toTopOf="@+id/detail_img"
-        android:layout_marginStart="65dp"
-        android:layout_marginTop="375dp"/>
+        app:layout_constraintTop_toTopOf="@+id/detail_img" />
+
     <View
+        android:id="@+id/profile_border"
         android:layout_width="match_parent"
         android:layout_height="1dp"
+        android:layout_marginTop="25dp"
         android:background="@drawable/recycler_divider"
         android:backgroundTint="@color/recycler_border"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/locationText"
-        android:layout_marginTop="25dp"/>
+        app:layout_constraintTop_toBottomOf="@id/locationText" />
+
+    <TextView
+        android:id="@+id/clothesLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/clothes_label_bg"
+        android:backgroundTint="@color/tops_bg"
+        android:fontFamily="@font/pretendard_medium"
+        android:paddingHorizontal="15dp"
+        android:paddingVertical="3dp"
+        android:text="label"
+        android:textColor="@color/tops_name"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/profile_border" />
 
     <TextView
         android:id="@+id/titleText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="제목"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginStart="20dp"
+
+        android:fontFamily="@font/pretendard_semibold"
+        android:text="title"
+        android:textColor="@color/sub_black"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/clothesLabel" />
 
     <TextView
-        android:id="@+id/categoryText"
-        android:layout_width="wrap_content"
+        android:id="@+id/descriptionText"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="카테고리"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="7dp"
+        android:fontFamily="@font/pretendard_regular"
+        android:textSize="14sp"
+        android:textColor="@color/description_gray"
+        android:text="descriptiondescriptiondescriptiondescriptiondescriptiondescription"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titleText" />
+
+    <View
+        android:id="@+id/description_border"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/recycler_divider"
+        android:backgroundTint="@color/recycler_border"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/descriptionText" />
 </androidx.constraintlayout.widget.ConstraintLayout>
