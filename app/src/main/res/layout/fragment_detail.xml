@@ -1,255 +1,304 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fillViewport="true">
 
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/detail_img"
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="338dp"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="match_parent">
 
-    <com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator
-        android:id="@+id/dotsIndicator"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="320dp"
-        app:dotsColor="@color/category_border"
-        app:dotsSize="7dp"
-        app:dotsStrokeColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/detail_img"
+            android:layout_width="match_parent"
+            android:layout_height="338dp"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/ic_zoom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="200dp"
-        android:layout_marginTop="310dp"
-        android:src="@drawable/ic_zoom"
-        app:layout_constraintStart_toStartOf="@id/dotsIndicator"
-        app:layout_constraintTop_toTopOf="parent" />
+        <com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator
+            android:id="@+id/dotsIndicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="320dp"
+            app:dotsColor="@color/category_border"
+            app:dotsSize="7dp"
+            app:dotsStrokeColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/BtnBack"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_margin="16dp"
-        android:contentDescription="@string/back"
-        android:src="@drawable/ic_arrow_down"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <ImageView
+            android:id="@+id/ic_zoom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="200dp"
+            android:layout_marginTop="310dp"
+            android:src="@drawable/ic_zoom"
+            app:layout_constraintStart_toStartOf="@id/dotsIndicator"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/ic_search"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginVertical="16dp"
-        android:layout_marginEnd="45dp"
-        android:src="@drawable/ic_search"
-        app:layout_constraintEnd_toEndOf="@+id/ic_share"
-        app:layout_constraintTop_toTopOf="parent" />
+        <ImageView
+            android:id="@+id/BtnBack"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_margin="16dp"
+            android:contentDescription="@string/back"
+            android:src="@drawable/ic_arrow_down"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/ic_share"
-        android:layout_width="27dp"
-        android:layout_height="27dp"
-        android:layout_marginVertical="15dp"
-        android:layout_marginEnd="15dp"
-        android:rotation="-90"
-        android:src="@drawable/ic_share"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <ImageView
+            android:id="@+id/ic_search"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginVertical="16dp"
+            android:layout_marginEnd="45dp"
+            android:src="@drawable/ic_search"
+            app:layout_constraintEnd_toEndOf="@+id/ic_share"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/user_profile"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="370dp"
-        android:background="@drawable/circle_background"
-        android:clipToOutline="true"
-        android:scaleType="centerCrop"
-        android:src="@drawable/profile"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/detail_img" />
+        <ImageView
+            android:id="@+id/ic_share"
+            android:layout_width="27dp"
+            android:layout_height="27dp"
+            android:layout_marginVertical="15dp"
+            android:layout_marginEnd="15dp"
+            android:rotation="-90"
+            android:src="@drawable/ic_share"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/user_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="55dp"
-        android:layout_marginTop="375dp"
-        android:fontFamily="@font/pretendard_semibold"
-        android:text="LeeHayan"
-        android:textColor="@color/sub_black"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="@+id/user_profile"
-        app:layout_constraintTop_toTopOf="@+id/detail_img" />
+        <ImageView
+            android:id="@+id/user_profile"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="370dp"
+            android:background="@drawable/circle_background"
+            android:clipToOutline="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/profile"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/detail_img" />
 
-    <TextView
-        android:id="@+id/locationText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="55dp"
-        android:layout_marginTop="395dp"
-        android:layout_marginEnd="20dp"
-        android:fontFamily="@font/pretendard_regular"
-        android:text="location"
-        android:textColor="@color/gray2"
-        android:textSize="11sp"
-        app:layout_constraintStart_toStartOf="@+id/user_profile"
-        app:layout_constraintTop_toTopOf="@+id/detail_img" />
+        <TextView
+            android:id="@+id/user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="55dp"
+            android:layout_marginTop="375dp"
+            android:fontFamily="@font/pretendard_semibold"
+            android:text="LeeHayan"
+            android:textColor="@color/sub_black"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@+id/user_profile"
+            app:layout_constraintTop_toTopOf="@+id/detail_img" />
 
-    <View
-        android:id="@+id/profile_border"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"
-        android:background="@drawable/recycler_divider"
-        android:backgroundTint="@color/recycler_border"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/locationText" />
+        <TextView
+            android:id="@+id/locationText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="55dp"
+            android:layout_marginTop="395dp"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="@font/pretendard_regular"
+            android:text="location"
+            android:textColor="@color/gray2"
+            android:textSize="11sp"
+            app:layout_constraintStart_toStartOf="@+id/user_profile"
+            app:layout_constraintTop_toTopOf="@+id/detail_img" />
 
-    <TextView
-        android:id="@+id/clothesLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/clothes_label_bg"
-        android:backgroundTint="@color/tops_bg"
-        android:fontFamily="@font/pretendard_medium"
-        android:paddingHorizontal="15dp"
-        android:paddingVertical="2dp"
-        android:text="label"
-        android:textColor="@color/tops_name"
-        android:textSize="13sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/profile_border" />
+        <View
+            android:id="@+id/profile_border"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="15dp"
+            android:background="@drawable/recycler_divider"
+            android:backgroundTint="@color/recycler_border"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/locationText" />
 
-    <TextView
-        android:id="@+id/titleText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        <TextView
+            android:id="@+id/clothesLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/clothes_label_bg"
+            android:backgroundTint="@color/tops_bg"
+            android:fontFamily="@font/pretendard_medium"
+            android:paddingHorizontal="15dp"
+            android:paddingVertical="2dp"
+            android:text="label"
+            android:textColor="@color/tops_name"
+            android:textSize="13sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/profile_border" />
 
-        android:fontFamily="@font/pretendard_semibold"
-        android:text="title"
-        android:textColor="@color/sub_black"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/clothesLabel" />
+        <TextView
+            android:id="@+id/titleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
 
-    <TextView
-        android:id="@+id/descriptionText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="7dp"
-        android:fontFamily="@font/pretendard_regular"
-        android:textSize="14sp"
-        android:textColor="@color/description_gray"
-        android:text="descriptiondescriptiondescriptiondescriptiondescriptiondescription"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/titleText" />
+            android:fontFamily="@font/pretendard_semibold"
+            android:text="title"
+            android:textColor="@color/sub_black"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/clothesLabel" />
 
-    <View
-        android:id="@+id/description_border"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginStart="15dp"
-        android:background="@drawable/recycler_divider"
-        android:backgroundTint="@color/recycler_border"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/descriptionText" />
+        <TextView
+            android:id="@+id/descriptionText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="@font/pretendard_regular"
+            android:text="descriptiondescriptiondescriptiondescriptiondescriptiondescription"
+            android:textColor="@color/description_gray"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/titleText" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="@string/sparkle"
-        android:layout_marginStart="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/description_border"/>
+        <View
+            android:id="@+id/description_border"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:background="@drawable/recycler_divider"
+            android:backgroundTint="@color/recycler_border"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/descriptionText" />
 
-    <TextView
-        android:id="@+id/swapMethodTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/swap_method"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/pretendard_medium"
-        android:textSize="14sp"
-        android:textColor="@color/sub_black"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/description_border"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/sparkle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/description_border" />
 
-    <TextView
-        android:id="@+id/swapMethod"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Trade Method"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="30dp"
-        android:fontFamily="@font/pretendard_regular"
-        android:textSize="14sp"
-        android:textColor="@color/description_gray"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/description_border"/>
+        <TextView
+            android:id="@+id/swapMethodTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/pretendard_medium"
+            android:text="@string/swap_method"
+            android:textColor="@color/sub_black"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/description_border" />
+
+        <TextView
+            android:id="@+id/swapMethod"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/pretendard_regular"
+            android:text="Trade Method"
+            android:textColor="@color/description_gray"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/description_border" />
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="@string/round_pin"
-        android:layout_marginStart="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/swapMethod"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/round_pin"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swapMethod" />
 
-    <TextView
-        android:id="@+id/locationTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/location"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/pretendard_medium"
-        android:textSize="14sp"
-        android:textColor="@color/sub_black"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/swapMethod"/>
+        <TextView
+            android:id="@+id/locationTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/pretendard_medium"
+            android:text="@string/location"
+            android:textColor="@color/sub_black"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swapMethod" />
 
-    <TextView
-        android:id="@+id/location"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="location"
-        android:layout_marginStart="25dp"
-        android:layout_marginEnd="20dp"
-        android:fontFamily="@font/pretendard_regular"
-        android:textSize="14sp"
-        android:textColor="@color/description_gray"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/locationTitle"/>
+        <TextView
+            android:id="@+id/location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="@font/pretendard_regular"
+            android:text="location"
+            android:textColor="@color/description_gray"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/locationTitle" />
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/map"
-        android:name="com.google.android.gms.maps.SupportMapFragment"
-        android:layout_width="360dp"
-        android:layout_height="117dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/location"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="25dp"/>
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="360dp"
+            android:layout_height="117dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/location" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <View
+            android:id="@+id/border"
+            android:layout_width="match_parent"
+            android:layout_height="6dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/related_items_divider"
+            android:backgroundTint="@color/border"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/map" />
+
+        <TextView
+            android:id="@+id/related_items"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="@font/pretendard_semibold"
+            android:text="@string/related_items"
+            android:textColor="@color/sub_black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/border" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/relatedRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/related_items" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/recycler_divider"
+            android:backgroundTint="@color/recycler_border"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/relatedRecyclerView" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

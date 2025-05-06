@@ -8,10 +8,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.rewear.R
 import com.example.rewear.databinding.DialogEnlargedImageBinding
 import com.example.rewear.databinding.FragmentDetailBinding
 import com.example.rewear.ui.home.Clothes
+import com.example.rewear.ui.home.ClothesAdapter
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.BitmapDescriptor
@@ -23,6 +26,8 @@ import com.google.android.gms.maps.model.MarkerOptions
 class DetailFragment : Fragment() {
     private var _binding: FragmentDetailBinding? = null
     private val binding get() = _binding!!
+
+    private lateinit var clothesList: MutableList<Clothes>
 
 
     override fun onCreateView(
@@ -37,6 +42,85 @@ class DetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        clothesList = mutableListOf(
+            Clothes(
+                imageList = listOf(
+                    R.drawable.example3,
+                    R.drawable.cloth_example,
+                    R.drawable.cloth_example2
+                ),
+                "Tops",
+                "Letter Open Hoodie",
+                "Mapo-dong",
+                "1m ago",
+                5,
+                description = "description",
+                "In-person Trade",
+            ),
+            Clothes(
+                imageList = listOf(
+                    R.drawable.cloth_example,
+                    R.drawable.cloth_example2
+                ),
+                "Tops",
+                "Layering T-shirt",
+                "Mapo-dong",
+                "1m ago",
+                5,
+                description = "description",
+                "In-person Trade",
+            ),
+            Clothes(
+                imageList = listOf(
+                    R.drawable.cloth_example,
+                    R.drawable.cloth_example2
+                ),
+                "Tops",
+                "Letter Open Hoodie",
+                "Mapo-dong",
+                "1m ago",
+                5, description = "description",
+                "In-person Trade",
+            ),
+            Clothes(
+                imageList = listOf(
+                    R.drawable.cloth_example,
+                    R.drawable.cloth_example2
+                ),
+                "Tops",
+                "Layering T-shirt",
+                "Mapo-dong",
+                "1m ago",
+                5,
+                description = "description",
+                "In-person Trade",
+            ),
+            Clothes(
+                imageList = listOf(
+                    R.drawable.cloth_example,
+                    R.drawable.cloth_example2
+                ),
+                "Tops",
+                "Letter Open Hoodie",
+                "Mapo-dong",
+                "1m ago",
+                5, description = "description",
+                "In-person Trade",
+            ),
+            Clothes(
+                imageList = listOf(
+                    R.drawable.cloth_example,
+                    R.drawable.cloth_example2
+                ),
+                "Tops",
+                "Layering T-shirt",
+                "Mapo-dong",
+                "1m ago",
+                5,
+                description = "description",
+                "In-person Trade",
+            ),
+        )
         binding.BtnBack.setOnClickListener {
             findNavController().popBackStack()
         }
@@ -79,6 +163,10 @@ class DetailFragment : Fragment() {
             }
             binding.detailImg.adapter = imageAdapter
             binding.dotsIndicator.setViewPager2(binding.detailImg)
+            binding.relatedRecyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL,false)
+            binding.relatedRecyclerView.adapter= ClothesAdapter(clothesList){selectedClothes->
+
+            }
 
             binding.icZoom.setOnClickListener {
                 val currentPosition = binding.detailImg.currentItem
