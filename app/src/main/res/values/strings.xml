@@ -47,4 +47,5 @@
     <string name="round_pin">📍</string>
     <string name="sparkle">✨</string>
     <string name="related_items">Related Items</string>
+    <string name="viewing_count">people are viewing this item</string>
 </resources>
