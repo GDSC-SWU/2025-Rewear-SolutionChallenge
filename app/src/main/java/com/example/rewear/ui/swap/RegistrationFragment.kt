@@ -12,7 +12,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.content.ContextCompat
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -27,6 +26,7 @@ class RegistrationFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val selectedImageUris = mutableListOf<Uri>()
+    private var selectedSwapMethod:String?=null
     private lateinit var galleryAdapter: GalleryAdapter
     private lateinit var imagePickerLauncher: ActivityResultLauncher<Intent>
 
@@ -158,11 +158,13 @@ class RegistrationFragment : Fragment() {
         binding.inPerson.setOnClickListener {
             binding.inPerson.setBackgroundResource(R.drawable.swap_method_selected)
             binding.shipping.setBackgroundResource(R.drawable.swap_method)
+            selectedSwapMethod="In-person Trade"
         }
 
         binding.shipping.setOnClickListener {
             binding.shipping.setBackgroundResource(R.drawable.swap_method_selected)
             binding.shipping.setBackgroundResource(R.drawable.swap_method)
+            selectedSwapMethod="Shipping Trade"
         }
 
         val clickListener = View.OnClickListener {
@@ -171,17 +173,24 @@ class RegistrationFragment : Fragment() {
         binding.swapAddLocation.setOnClickListener(clickListener)
         binding.swapLocationIcon.setOnClickListener(clickListener)
 
-        binding.BtnSubmit.setOnClickListener{
-            val newClothes= Clothes(
-                R.drawable.cloth_example,
+        binding.BtnSubmit.setOnClickListener {
+            val newClothes = Clothes(
+                imageList = listOf(
+                    R.drawable.cloth_example,
+                    R.drawable.cloth_example2
+                ),
                 binding.categoryEditText.text.toString(),
                 binding.titleEditText.text.toString(),
                 binding.swapLocationText.text.toString(),
                 "just now",
-                0
-
+                0,
+                binding.descriptionEditText.text.toString(),
+                swapMethod = selectedSwapMethod?:""
             )
-            findNavController().previousBackStackEntry?.savedStateHandle?.set("newClothes",newClothes)
+            findNavController().previousBackStackEntry?.savedStateHandle?.set(
+                "newClothes",
+                newClothes
+            )
 
             findNavController().popBackStack()
         }

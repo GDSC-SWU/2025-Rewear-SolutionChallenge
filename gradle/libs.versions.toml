@@ -17,6 +17,8 @@ googleMaps = "18.2.0"
 googleLocation = "21.0.1"
 viewpager2 = "1.0.0"
 glide="4.16.0"
+dotsindicator="4.2"
+photoView="2.3.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -35,6 +37,8 @@ google-maps = { module = "com.google.android.gms:play-services-maps", version.re
 google-location = { module = "com.google.android.gms:play-services-location", version.ref = "googleLocation" }
 androidx-viewpager2 = { group = "androidx.viewpager2", name = "viewpager2", version.ref = "viewpager2" }
 glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "glide" }
+dotsindicator={module="com.tbuonomo:dotsindicator",version.ref="dotsindicator"}
+photo-view = { group = "com.github.Baseflow", name = "PhotoView", version.ref = "photoView" }
 
 
 [plugins]

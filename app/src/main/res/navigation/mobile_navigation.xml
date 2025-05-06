@@ -25,8 +25,16 @@
         <action
             android:id="@+id/action_homeFragment_to_registrationFragment"
             app:destination="@+id/registrationFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_detailFragment"
+            app:destination="@+id/detailFragment"/>
     </fragment>
 
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.example.rewear.ui.swap.DetailFragment"
+        android:label="Detail"
+        tools:layout="@layout/fragment_detail"/>
 
     <fragment
         android:id="@+id/navigation_reform"

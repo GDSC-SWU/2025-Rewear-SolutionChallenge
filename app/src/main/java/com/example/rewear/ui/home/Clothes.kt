@@ -1,12 +1,16 @@
 package com.example.rewear.ui.home
 
-import java.io.Serializable
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
 
-data class Clothes (
-    val imageResId:Int,
-    val label:String,
-    val name:String,
-    val location:String,
-    val timeAgo:String,
-    val likeCount:Int
-):Serializable
+@Parcelize
+data class Clothes(
+    val imageList: List<Int>,
+    val label: String,
+    val name: String,
+    val location: String,
+    val timeAgo: String,
+    val likeCount: Int,
+    val description: String,
+    val swapMethod: String
+) : Parcelable
