@@ -43,4 +43,7 @@
     <string name="add_location">Add Location</string>
     <string name="upload_pictures">Upload pictures first</string>
     <string name="register">Register</string>
+    <string name="location">Location</string>
+    <string name="round_pin">📍</string>
+    <string name="sparkle">✨</string>
 </resources>

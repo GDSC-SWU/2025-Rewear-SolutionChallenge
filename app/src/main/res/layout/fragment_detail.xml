@@ -95,6 +95,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="55dp"
         android:layout_marginTop="395dp"
+        android:layout_marginEnd="20dp"
         android:fontFamily="@font/pretendard_regular"
         android:text="location"
         android:textColor="@color/gray2"
@@ -107,6 +108,8 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginTop="25dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
         android:background="@drawable/recycler_divider"
         android:backgroundTint="@color/recycler_border"
         app:layout_constraintStart_toStartOf="parent"
@@ -122,7 +125,7 @@
         android:backgroundTint="@color/tops_bg"
         android:fontFamily="@font/pretendard_medium"
         android:paddingHorizontal="15dp"
-        android:paddingVertical="3dp"
+        android:paddingVertical="2dp"
         android:text="label"
         android:textColor="@color/tops_name"
         android:textSize="13sp"
@@ -161,6 +164,8 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginStart="15dp"
         android:background="@drawable/recycler_divider"
         android:backgroundTint="@color/recycler_border"
         app:layout_constraintStart_toStartOf="parent"
@@ -170,7 +175,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="\u2728"
+        android:text="@string/sparkle"
         android:layout_marginStart="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/description_border"/>
@@ -200,4 +205,51 @@
         android:textColor="@color/description_gray"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/description_border"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/round_pin"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/swapMethod"/>
+
+    <TextView
+        android:id="@+id/locationTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/location"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/pretendard_medium"
+        android:textSize="14sp"
+        android:textColor="@color/sub_black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/swapMethod"/>
+
+    <TextView
+        android:id="@+id/location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="location"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="20dp"
+        android:fontFamily="@font/pretendard_regular"
+        android:textSize="14sp"
+        android:textColor="@color/description_gray"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/locationTitle"/>
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="360dp"
+        android:layout_height="117dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/location"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="25dp"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
