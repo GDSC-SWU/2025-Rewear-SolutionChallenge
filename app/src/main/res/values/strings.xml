@@ -48,4 +48,5 @@
     <string name="sparkle">✨</string>
     <string name="related_items">Related Items</string>
     <string name="viewing_count">people are viewing this item</string>
+    <string name="swap_now">Swap Now</string>
 </resources>

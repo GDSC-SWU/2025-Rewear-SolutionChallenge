@@ -138,7 +138,7 @@ class DetailFragment : Fragment() {
                 if (addressList != null && addressList.isNotEmpty()) {
                     val latLng = LatLng(addressList[0].latitude, addressList[0].longitude)
 
-                    val customMarker=BitmapDescriptorFactory.fromResource(R.drawable.ic_marker)
+                    val customMarker = BitmapDescriptorFactory.fromResource(R.drawable.ic_marker)
 
                     googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15f))
                     googleMap.addMarker(
@@ -157,14 +157,16 @@ class DetailFragment : Fragment() {
             binding.descriptionText.text = selectedClothes.description
             binding.swapMethod.text = selectedClothes.swapMethod
             binding.location.text = selectedClothes.location
+            binding.likeCount.text = selectedClothes.likeCount.toString()
 
             val imageAdapter = DetailImageAdapter(selectedClothes.imageList) { imageUrl ->
                 showEnlargedImage(imageUrl)
             }
             binding.detailImg.adapter = imageAdapter
             binding.dotsIndicator.setViewPager2(binding.detailImg)
-            binding.relatedRecyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL,false)
-            binding.relatedRecyclerView.adapter= ClothesAdapter(clothesList){selectedClothes->
+            binding.relatedRecyclerView.layoutManager =
+                LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+            binding.relatedRecyclerView.adapter = ClothesAdapter(clothesList) { selectedClothes ->
 
             }
 

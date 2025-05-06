@@ -256,7 +256,8 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/location" />
+            app:layout_constraintTop_toBottomOf="@id/location"
+            android:background="@drawable/clothes_bg"/>
 
         <View
             android:id="@+id/border"
@@ -333,6 +334,54 @@
             android:backgroundTint="@color/recycler_border"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/viewing_count" />
+
+        <ImageView
+            android:id="@+id/heartIcon"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="2dp"
+            android:src="@drawable/ic_heart"
+            app:tint="@color/heart"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/viewing_count_border"/>
+
+        <TextView
+            android:id="@+id/likeCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="34dp"
+            android:fontFamily="@font/pretendard_regular"
+            app:layout_constraintTop_toBottomOf="@id/heartIcon"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="0"
+            android:textColor="@color/description_gray"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/BtnSwapNow"
+            android:layout_width="280dp"
+            android:layout_height="50dp"
+            android:background="@drawable/register_button_state"
+            android:fontFamily="@font/pretendard_bold"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/swap_now"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textAllCaps="false"
+            android:enabled="false"
+            app:layout_constraintStart_toEndOf="@id/heartIcon"
+            app:layout_constraintTop_toBottomOf="@id/viewing_count_border"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/BtnSwapNow" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
