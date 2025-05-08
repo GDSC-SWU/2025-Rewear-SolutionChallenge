@@ -40,5 +40,9 @@
     <color name="toast_message">#8991A6</color>
     <color name="register_button_inactive">#6B778BEF</color>
     <color name="description_gray">#AAA9A9</color>
+    <color name="reform_filter_unselected">#F8F8F8</color>
+    <color name="no_reformed">#B4B4B4</color>
+    <color name="corp_name">#B5B5B5</color>
+    <color name="reform_border">#F9F9F9</color>
 
 </resources>

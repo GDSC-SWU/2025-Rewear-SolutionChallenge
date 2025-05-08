@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp">
+
+    <ImageView
+        android:id="@+id/clothing"
+        android:layout_width="80dp"
+        android:layout_height="110dp"
+        android:layout_marginTop="8dp"
+        android:scaleType="center"
+        android:src="@drawable/cloth_example2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/clothesLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/clothes_label_bg"
+        android:backgroundTint="@color/tops_bg"
+        android:fontFamily="@font/pretendard_medium"
+        android:paddingHorizontal="10dp"
+        android:text="@string/tops"
+        android:textColor="@color/tops_name"
+        android:textSize="11sp"
+        app:layout_constraintStart_toEndOf="@+id/clothing"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/clothing_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:fontFamily="@font/pretendard_semibold"
+        android:text="Layering T-shirt"
+        android:textColor="@color/sub_black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/clothing"
+        app:layout_constraintTop_toBottomOf="@id/clothesLabel" />
+
+    <TextView
+        android:id="@+id/corp_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:fontFamily="@font/pretendard_medium"
+        android:text="업체명"
+        android:textColor="@color/corp_name"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@+id/clothing"
+        app:layout_constraintTop_toBottomOf="@+id/clothing_name" />
+
+    <ImageView
+        android:id="@+id/reform_progress"
+        android:layout_width="211dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="15dp"
+        android:src="@drawable/reform_received"
+        app:layout_constraintStart_toEndOf="@id/clothing"
+        app:layout_constraintTop_toBottomOf="@id/corp_name" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
