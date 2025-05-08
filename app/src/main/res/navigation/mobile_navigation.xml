@@ -27,14 +27,55 @@
             app:destination="@+id/registrationFragment" />
         <action
             android:id="@+id/action_homeFragment_to_detailFragment"
-            app:destination="@+id/detailFragment"/>
+            app:destination="@+id/detailFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_choosingFragment"
+            app:destination="@+id/choosingFragment" />
     </fragment>
 
+    <fragment
+        android:id="@+id/choosingFragment"
+        android:name="com.example.rewear.ui.swap.ChoosingFragment"
+        android:label="Choosing"
+        tools:layout="@layout/fragment_choosing">
+        <action
+            android:id="@+id/action_choosingFragment_to_homeFragment"
+            app:destination="@+id/navigation_home" />
+
+        <action
+            android:id="@+id/action_choosingFragment_to_timeSelectingFragment"
+            app:destination="@+id/timeSelectingFragment" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/timeSelectingFragment"
+        android:name="com.example.rewear.ui.swap.TimeSelectingFragment"
+        android:label="Detail"
+        tools:layout="@layout/fragment_detail">
+        <action
+            android:id="@+id/action_timeSelectingFragment_to_swapConfirmedFragment"
+            app:destination="@+id/swapConfirmedFragment" />
+
+        <action
+            android:id="@+id/action_timeSelectingFragment_to_homeFragment"
+            app:destination="@+id/navigation_home"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/swapConfirmedFragment"
+        android:name="com.example.rewear.ui.swap.SwapConfirmedFragment"
+        android:label="Swap Confirmed"
+        tools:layout="@layout/fragment_swap_confirm">
+        <action
+            android:id="@+id/action_swapConfirmedFragment_to_homeFragment"
+            app:destination="@+id/navigation_home"/>
+    </fragment>
     <fragment
         android:id="@+id/detailFragment"
         android:name="com.example.rewear.ui.swap.DetailFragment"
         android:label="Detail"
-        tools:layout="@layout/fragment_detail"/>
+        tools:layout="@layout/fragment_detail" />
 
     <fragment
         android:id="@+id/navigation_reform"
