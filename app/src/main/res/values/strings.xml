@@ -49,4 +49,12 @@
     <string name="related_items">Related Items</string>
     <string name="viewing_count">people are viewing this item</string>
     <string name="swap_now">Swap Now</string>
+    <string name="choose_item">Choose an Item</string>
+    <string name="choose_the_clothes">Choose the clothes\nyou want to swap!</string>
+    <string name="decline">Decline</string>
+    <string name="next">Next</string>
+    <string name="swap_confirm">Swap Confirm</string>
+    <string name="swap_confirmed">Swap Confirmed</string>
+    <string name="swap_confirmed_message">Hope this item brings you joy\nand creates new happy memories!</string>
+    <string name="Home">Home</string>
 </resources>
