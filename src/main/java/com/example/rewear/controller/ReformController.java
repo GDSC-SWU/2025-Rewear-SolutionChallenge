@@ -2,13 +2,11 @@ package com.example.rewear.controller;
 
 import com.example.rewear.domain.enums.ReformStatus;
 import com.example.rewear.dto.ReformDto;
+import com.example.rewear.service.ItemService;
 import com.example.rewear.service.ReformService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,10 +16,11 @@ import java.util.List;
 public class ReformController {
 
     private final ReformService reformService;
+    private final ItemService itemService;
 
     @GetMapping("/reform/items")
     public ResponseEntity<List<ReformDto.ReformListDto>> listByStatus(
-            @RequestParam(value = "status", required = false) ReformStatus reformStatus){
+            @RequestParam(value = "status", required = false) ReformStatus reformStatus) {
 
         List<ReformDto.ReformListDto> reformList;
 
@@ -44,6 +43,12 @@ public class ReformController {
         return ResponseEntity.ok(reformList);
     }
 
+    @PostMapping("/items/{itemId}/partners")
+    public ResponseEntity<ReformDto.PartnerChooseResponseDto> partnerChoose(
+            @PathVariable Long itemId,@RequestBody ReformDto.PartnerChooseRequestDto request){
+        ReformDto.PartnerChooseResponseDto chooseResponse = reformService.completeSelect(itemId,request);
+        return ResponseEntity.ok().body(chooseResponse);
+    }
 
 
 }
