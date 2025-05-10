@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.navigation.safe.args)
     id("kotlin-kapt")
     id("kotlin-parcelize")
 }
@@ -62,4 +63,6 @@ dependencies {
     implementation(libs.glide)
     implementation(libs.dotsindicator)
     implementation(libs.photo.view)
+    implementation(libs.navigation.fragment.ktx)
+    implementation(libs.navigation.ui.ktx)
 }

@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.rewear.R
@@ -73,7 +74,11 @@ class UpcycledonateFragment : Fragment() {
                 timeAgo = "1m ago"
             )
         )
-        notificationAdapter = NotificationAdapter(notificationList)
+        notificationAdapter = NotificationAdapter(notificationList){notification ->
+            if (isAdded && view != null) {
+                findNavController().navigate(R.id.action_upcycledonate_to_donateReformSelection)
+            }
+        }
         binding.notificationUpcycleRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.notificationUpcycleRecyclerView.adapter = notificationAdapter
 

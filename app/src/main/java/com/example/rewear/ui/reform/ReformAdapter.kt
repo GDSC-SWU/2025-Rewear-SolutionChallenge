@@ -10,7 +10,9 @@ import com.example.rewear.ui.reform.ReformFragment.ReformStatus
 data class ReformItem(
     val id: Int,
     val title: String,
-    val status: ReformStatus
+    val status: ReformStatus,
+    val imageResId:Int?=null,
+    val corpName:String?=null
 )
 
 class ReformAdapter : RecyclerView.Adapter<ReformAdapter.ReformViewHolder>() {
@@ -18,8 +20,8 @@ class ReformAdapter : RecyclerView.Adapter<ReformAdapter.ReformViewHolder>() {
     private var allItems: List<ReformItem> = listOf()
     private var filteredItems: List<ReformItem> = listOf()
 
-    fun submitList(items: List<ReformItem>) {
-        allItems = items
+    fun submitList(items: List<Any>) {
+        allItems = items as List<ReformItem>
         filteredItems = items
         notifyDataSetChanged()
     }
@@ -59,6 +61,8 @@ class ReformAdapter : RecyclerView.Adapter<ReformAdapter.ReformViewHolder>() {
                 ReformStatus.COMPLETED -> R.drawable.reform_completed
             }
             binding.reformProgress.setImageResource(statusImageRes)
+            binding.clothing.setImageResource(item.imageResId?:R.drawable.cloth_example)
+            binding.corpName.text=item.corpName?:"알 수 없음"
         }
     }
 

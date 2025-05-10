@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.rewear.R
 import com.example.rewear.databinding.FragmentSwapBinding
+import androidx.navigation.fragment.findNavController
 
 class SwapFragment : Fragment() {
 
@@ -74,16 +75,19 @@ class SwapFragment : Fragment() {
                 timeAgo = "1m ago"
             )
         )
-        notificationAdapter = NotificationAdapter(notificationList)
-        binding.notificationSwapRecyclerView.layoutManager = LinearLayoutManager(requireContext())
-        binding.notificationSwapRecyclerView.adapter = notificationAdapter
-
-        val divider=DividerItemDecoration(context,DividerItemDecoration.VERTICAL)
-        ContextCompat.getDrawable(requireContext(),R.drawable.recycler_divider)?.let {
-            divider.setDrawable(it)
+        notificationAdapter = NotificationAdapter(notificationList) { notification ->
+            findNavController().navigate(R.id.action_swap_to_choosing)
         }
-        binding.notificationSwapRecyclerView.addItemDecoration(divider)
-    }
+            binding.notificationSwapRecyclerView.layoutManager =
+                LinearLayoutManager(requireContext())
+            binding.notificationSwapRecyclerView.adapter = notificationAdapter
+
+            val divider = DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
+            ContextCompat.getDrawable(requireContext(), R.drawable.recycler_divider)?.let {
+                divider.setDrawable(it)
+            }
+            binding.notificationSwapRecyclerView.addItemDecoration(divider)
+        }
 
     override fun onDestroyView() {
         super.onDestroyView()

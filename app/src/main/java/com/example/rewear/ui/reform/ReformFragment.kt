@@ -47,12 +47,26 @@ class ReformFragment : Fragment() {
         }
         binding.reformSwapRecyclerView.addItemDecoration(divider)
 
+        val imageResId=arguments?.getInt("imageResId")?:0
+        val partnerName=arguments?.getString("partnerName")?:""
+
+        val userItem=ReformItem(
+            id=0,
+            title="new",
+            status = ReformStatus.RECEIVED,
+            imageResId = imageResId,
+            corpName = partnerName
+        )
+
         val allItems = listOf(
+            userItem,
             ReformItem(1, "Layering T-shirt", ReformStatus.RECEIVED),
             ReformItem(2, "Letter Open Hoodie", ReformStatus.IN_PROGRESS),
             ReformItem(3, "Ballon pants", ReformStatus.IN_PROGRESS),
             ReformItem(4, "Check mini skirt", ReformStatus.COMPLETED),
         )
+
+
 
 
         adapter.submitList(allItems)

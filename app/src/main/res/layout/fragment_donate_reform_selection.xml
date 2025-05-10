@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/BtnClose"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="32dp"
+        android:contentDescription="@string/back"
+        android:src="@drawable/ic_clear"
+        android:backgroundTint="@color/black" />
+
+    <ImageView
+        android:id="@+id/clothing"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintTop_toBottomOf="@id/BtnClose"
+        app:layout_constraintStart_toStartOf="parent"
+        android:src="@drawable/cloth_example2"
+        android:layout_marginTop="120dp"
+        android:layout_marginStart="55dp"/>
+
+    <TextView
+        android:id="@+id/new_beginning"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/new_beginning"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/clothing"
+        android:fontFamily="@font/pretendard_semibold"
+        android:textSize="28sp"
+        android:textColor="@color/sub_black"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="87dp"/>
+
+    <TextView
+        android:id="@+id/selection_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/not_exchanged"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/new_beginning"
+        android:fontFamily="@font/pretendard_medium"
+        android:textSize="15sp"
+        android:textColor="@color/sub_black"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="110dp"/>
+
+    <LinearLayout
+        android:id="@+id/fixed_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingTop="20dp"
+        android:paddingBottom="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+
+        <Button
+            android:id="@+id/btn_donate"
+            android:layout_width="180dp"
+            android:layout_height="60dp"
+            android:backgroundTint="@color/tab_unselected"
+            android:fontFamily="@font/pretendard_bold"
+            android:text="@string/donate"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/btn_upcycle"
+            android:layout_width="180dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="15dp"
+            android:fontFamily="@font/pretendard_bold"
+            android:text="@string/upcycle"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
