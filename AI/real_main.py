@@ -54,7 +54,7 @@ async def classify_clothing(file: UploadFile = File(...)):
     result = response.text.strip()
     return JSONResponse(content={"category": result})
 
-# 2. 3 Recommended Reform Products
+#2. 3 Recommended Reform Products
 text_model = genai.GenerativeModel("gemini-2.0-flash")
 
 class ClothingRequest(BaseModel):
