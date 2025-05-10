@@ -44,5 +44,7 @@
     <color name="no_reformed">#B4B4B4</color>
     <color name="corp_name">#B5B5B5</color>
     <color name="reform_border">#F9F9F9</color>
+    <color name="process_number">#616161</color>
+    <color name="support_gray">#858585</color>
 
 </resources>

@@ -61,4 +61,13 @@
     <string name="in_progress">In Progress</string>
     <string name="completed">Completed</string>
     <string name="no_reformed_clothes_yet">No reformed clothes yet</string>
+    <string name="new_beginning">A new Beginning?</string>
+    <string name="not_exchanged">This item wasn\'t exchaned,\nbut it still has a story to tell.</string>
+    <string name="donate">Donate</string>
+    <string name="upcycle">Upcycle</string>
+    <string name="choose_reform_items">Choose what to make\nfrom this item</string>
+    <string name="reform_ai">Here\'s a preview of\nwhhat it could become</string>
+    <string name="pick_partner">Pick a partner to\nremake this item</string>
+    <string name="support">Support women returning to work!</string>
+    <string name="done">Done</string>
 </resources>

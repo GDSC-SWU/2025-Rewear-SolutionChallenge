@@ -47,6 +47,35 @@
             app:destination="@+id/timeSelectingFragment" />
     </fragment>
 
+    <fragment
+        android:id="@+id/upcycledonateFragment"
+        android:name="com.example.rewear.ui.home.UpcycledonateFragment"
+        android:label="UpcycledonateFragment"
+        tools:layout="@layout/fragment_upcycledonate">
+        <action
+            android:id="@+id/action_upcycledonateFragment_to_donateReformSelectionFragment"
+            app:destination="@+id/donateReformSelectionFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/reformItemsFragment"
+        android:name="com.example.rewear.ui.reform.ReformItemsFragment"
+        android:label="ReformItems"
+        tools:layout="@layout/fragment_reform_items" >
+        <action
+            android:id="@+id/action_reformItemsFragment_to_reformAiFragment"
+            app:destination="@+id/reformAiFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@id/donateReformSelectionFragment"
+        android:name="com.example.rewear.ui.reform.DonateReformSelectionFragment"
+        android:label="DonateReformSelectionFragment"
+        tools:layout="@layout/fragment_donate_reform_selection">
+        <action
+            android:id="@+id/action_donateReformSelectionFragment_to_reformItemsFragment"
+            app:destination="@+id/reformItemsFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/timeSelectingFragment"
@@ -59,7 +88,7 @@
 
         <action
             android:id="@+id/action_timeSelectingFragment_to_homeFragment"
-            app:destination="@+id/navigation_home"/>
+            app:destination="@+id/navigation_home" />
     </fragment>
 
     <fragment
@@ -69,8 +98,30 @@
         tools:layout="@layout/fragment_swap_confirm">
         <action
             android:id="@+id/action_swapConfirmedFragment_to_homeFragment"
-            app:destination="@+id/navigation_home"/>
+            app:destination="@+id/navigation_home" />
     </fragment>
+
+
+    <fragment
+        android:id="@+id/reformAiFragment"
+        android:name="com.example.rewear.ui.reform.ReformAiFragment"
+        android:label="ReformAi"
+        tools:layout="@layout/fragment_reform_ai" >
+        <action
+            android:id="@+id/action_reformAiFragment_to_pickPartnerFragment"
+            app:destination="@+id/pickPartnerFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/pickPartnerFragment"
+        android:name="com.example.rewear.ui.reform.PickPartnerFragment"
+        android:label="PickPartner"
+        tools:layout="@layout/fragment_pick_partner" >
+        <action
+            android:id="@+id/action_pickPartnerFragment_to_reformFragment"
+            app:destination="@+id/navigation_reform" />
+    </fragment>
+
     <fragment
         android:id="@+id/detailFragment"
         android:name="com.example.rewear.ui.swap.DetailFragment"
@@ -105,7 +156,14 @@
         android:id="@+id/notificationFragment"
         android:name="com.example.rewear.ui.home.NotificationFragment"
         android:label="Notification"
-        tools:layout="@layout/fragment_notification" />
+        tools:layout="@layout/fragment_notification">
+        <action
+            android:id="@+id/action_upcycledonate_to_donateReformSelection"
+            app:destination="@+id/donateReformSelectionFragment" />
+        <action
+            android:id="@+id/action_swap_to_choosing"
+            app:destination="@+id/choosingFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/registrationFragment"

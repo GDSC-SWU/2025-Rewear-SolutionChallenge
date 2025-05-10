@@ -6,8 +6,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.rewear.databinding.ItemNotificationBinding
 
-class NotificationAdapter(private val notifications:List<Notifications>):
-    RecyclerView.Adapter<NotificationAdapter.NotificationViewHolder>() {
+class NotificationAdapter(
+    private val notifications:List<Notifications>,
+    private val onItemClick:(Notifications)->Unit
+): RecyclerView.Adapter<NotificationAdapter.NotificationViewHolder>() {
 
     inner class NotificationViewHolder(val binding: ItemNotificationBinding):
     RecyclerView.ViewHolder(binding.root)
@@ -33,6 +35,10 @@ class NotificationAdapter(private val notifications:List<Notifications>):
         b.notificationTime.text=notification.timeAgo
 
         b.notificationUnreadDot.visibility= View.VISIBLE
+
+        b.root.setOnClickListener{
+            onItemClick(notification)
+        }
     }
 
     override fun getItemCount(): Int {

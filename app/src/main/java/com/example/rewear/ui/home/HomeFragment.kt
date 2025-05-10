@@ -89,15 +89,11 @@ class HomeFragment : Fragment() {
             findNavController().navigate(R.id.action_homeFragment_to_notificationFragment)
         }
 
-        val fortestClickListener = View.OnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_choosingFragment)
-        }
 
         binding.icSearch.setOnClickListener(searchClickListener)
         binding.icNotification.setOnClickListener(notificationClickListener)
         binding.userLocation.setOnClickListener(clickListener)
         binding.userLocationIc.setOnClickListener(clickListener)
-        binding.userName.setOnClickListener(fortestClickListener)//fortest
 
         clothesList = mutableListOf(
             Clothes(
