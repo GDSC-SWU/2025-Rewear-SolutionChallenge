@@ -6,6 +6,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.text.method.ScrollingMovementMethod
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,8 +18,18 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.rewear.R
+import com.example.rewear.ai.CategoryResponse
+import com.example.rewear.ai.RetrofitClient
 import com.example.rewear.databinding.FragmentRegistrationBinding
 import com.example.rewear.ui.home.Clothes
+import retrofit2.Call
+import retrofit2.Callback
+import okhttp3.MediaType
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
+import retrofit2.Response
+import java.io.File
 
 class RegistrationFragment : Fragment() {
 
@@ -26,7 +37,7 @@ class RegistrationFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val selectedImageUris = mutableListOf<Uri>()
-    private var selectedSwapMethod:String?=null
+    private var selectedSwapMethod: String? = null
     private lateinit var galleryAdapter: GalleryAdapter
     private lateinit var imagePickerLauncher: ActivityResultLauncher<Intent>
 
@@ -35,7 +46,6 @@ class RegistrationFragment : Fragment() {
     private var isImageSelected = false
 
     companion object {
-        private const val REQUEST_CODE_PICK_IMAGES = 1001
         private const val MAX_SELECTION = 5
     }
 
@@ -46,14 +56,14 @@ class RegistrationFragment : Fragment() {
             registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
                 if (result.resultCode == Activity.RESULT_OK) {
                     val data = result.data
-                    val imageUris = mutableListOf<Uri>()
+                    val imageUri = data?.data
                     selectedImageUris.clear()
+
                     if (data?.clipData != null) {
                         val count = data.clipData!!.itemCount.coerceAtMost(MAX_SELECTION)
                         for (i in 0 until count) {
                             selectedImageUris.add(data.clipData!!.getItemAt(i).uri)
                         }
-
                     } else if (data?.data != null) {
                         selectedImageUris.add(data.data!!)
                     }
@@ -66,23 +76,13 @@ class RegistrationFragment : Fragment() {
                         R.id.action_registrationFragment_to_aiCategoryProcessingFragment,
                         bundle
                     )
-
-
-                    galleryAdapter.notifyDataSetChanged()
-                    updateImageCounter()
-                    binding.aiBubble.visibility = View.GONE
-
-                    isImageSelected = selectedImageUris.isNotEmpty()
-                    updateSubmitButtonState()
                 }
             }
     }
 
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentRegistrationBinding.inflate(inflater, container, false)
         return binding.root
@@ -91,13 +91,44 @@ class RegistrationFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val navController = findNavController()
+        val args = arguments
+        args?.getString("ai_result_category")?.let {
+            binding.categoryEditText.setText(it)
+            isCategorySelected = true
+        }
 
-        navController.currentBackStackEntry?.savedStateHandle
-            ?.getLiveData<String>("selectedAddress")
-            ?.observe(viewLifecycleOwner) { address ->
-                binding.swapLocationText.text = address
-            }
+        args?.getParcelableArrayList<Uri>("image_uris")?.let {
+            selectedImageUris.clear()
+            selectedImageUris.addAll(it)
+            isImageSelected = selectedImageUris.isNotEmpty()
+        }
+
+        galleryAdapter = GalleryAdapter(selectedImageUris) {
+            updateImageCounter()
+        }
+        binding.galleryRecyclerView.apply {
+            layoutManager =
+                LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+            adapter = galleryAdapter
+        }
+        updateImageCounter()
+
+        if (selectedImageUris.isNotEmpty()) {
+            binding.aiBubble.visibility = View.GONE
+        }
+
+        val categoryFromAi = arguments?.getString("ai_result_category")
+        categoryFromAi?.let {
+            binding.categoryEditText.setText(it)
+            isCategorySelected = true
+            updateSubmitButtonState()
+        }
+
+        arguments?.getString("selectedCategory")?.let { selectedCategory ->
+            binding.categoryEditText.setText(selectedCategory)
+            isCategorySelected = true
+            updateSubmitButtonState()
+        }
 
         binding.titleEditText.addTextChangedListener {
             isTitleFilled = it.toString().isNotEmpty()
@@ -109,25 +140,14 @@ class RegistrationFragment : Fragment() {
 
         }
 
-        if (selectedImageUris.isNotEmpty()) {
-            binding.aiBubble.visibility = View.GONE
-        }
         binding.BtnClose.setOnClickListener {
 
-            findNavController().popBackStack()
+            findNavController().navigate(R.id.action_registrationFragment_to_homeFragment)
         }
         binding.galleryView.setOnClickListener {
             openGallery()
         }
-        galleryAdapter = GalleryAdapter(selectedImageUris) {
-            updateImageCounter()
-        }
-        binding.galleryRecyclerView.apply {
-            layoutManager =
-                LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-            adapter = galleryAdapter
-        }
-        updateImageCounter()
+
 
         binding.category.setOnClickListener {
             if (selectedImageUris.isEmpty()) {
@@ -137,12 +157,11 @@ class RegistrationFragment : Fragment() {
                 toastFinal.view = toastMessage
                 toastFinal.show()
                 return@setOnClickListener
-
             }
-            val bottomSheetFragment =
-                CategoryBottomSheetFragment() { selectedCategoryName, selectedCategoryId ->
-                    binding.categoryEditText.text = selectedCategoryName
 
+            val bottomSheetFragment =
+                CategoryBottomSheetFragment() { selectedCategoryName, _ ->
+                    binding.categoryEditText.text = selectedCategoryName
                     isCategorySelected = selectedCategoryName.isNotBlank()
                     updateSubmitButtonState()
 
@@ -158,13 +177,13 @@ class RegistrationFragment : Fragment() {
         binding.inPerson.setOnClickListener {
             binding.inPerson.setBackgroundResource(R.drawable.swap_method_selected)
             binding.shipping.setBackgroundResource(R.drawable.swap_method)
-            selectedSwapMethod="In-person Trade"
+            selectedSwapMethod = "In-person Trade"
         }
 
         binding.shipping.setOnClickListener {
             binding.shipping.setBackgroundResource(R.drawable.swap_method_selected)
             binding.shipping.setBackgroundResource(R.drawable.swap_method)
-            selectedSwapMethod="Shipping Trade"
+            selectedSwapMethod = "Shipping Trade"
         }
 
         val clickListener = View.OnClickListener {
@@ -172,6 +191,14 @@ class RegistrationFragment : Fragment() {
         }
         binding.swapAddLocation.setOnClickListener(clickListener)
         binding.swapLocationIcon.setOnClickListener(clickListener)
+
+        val navController = findNavController()
+
+        navController.currentBackStackEntry?.savedStateHandle
+            ?.getLiveData<String>("selectedAddress")
+            ?.observe(viewLifecycleOwner) { address ->
+                binding.swapLocationText.text = address
+            }
 
         binding.BtnSubmit.setOnClickListener {
             val newClothes = Clothes(
@@ -185,16 +212,16 @@ class RegistrationFragment : Fragment() {
                 "just now",
                 0,
                 binding.descriptionEditText.text.toString(),
-                swapMethod = selectedSwapMethod?:""
+                swapMethod = selectedSwapMethod ?: ""
             )
             findNavController().previousBackStackEntry?.savedStateHandle?.set(
                 "newClothes",
                 newClothes
             )
 
-            findNavController().popBackStack()
+            findNavController().navigate(R.id.action_registrationFragment_to_homeFragment)
         }
-
+        updateSubmitButtonState()
     }
 
     private fun openGallery() {

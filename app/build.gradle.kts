@@ -65,4 +65,9 @@ dependencies {
     implementation(libs.photo.view)
     implementation(libs.navigation.fragment.ktx)
     implementation(libs.navigation.ui.ktx)
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.gson)
+    implementation(libs.okhttp)
+    implementation(libs.gson)
+    implementation(libs.okhttp.logging)
 }
