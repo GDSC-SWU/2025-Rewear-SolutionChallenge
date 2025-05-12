@@ -14,3 +14,7 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: update
+
+ai:
+  api:
+    base-url: https://clothing-api-949882041921.us-central1.run.app
