@@ -61,7 +61,7 @@
         android:id="@+id/reformItemsFragment"
         android:name="com.example.rewear.ui.reform.ReformItemsFragment"
         android:label="ReformItems"
-        tools:layout="@layout/fragment_reform_items" >
+        tools:layout="@layout/fragment_reform_items">
         <action
             android:id="@+id/action_reformItemsFragment_to_reformAiFragment"
             app:destination="@+id/reformAiFragment" />
@@ -106,7 +106,7 @@
         android:id="@+id/reformAiFragment"
         android:name="com.example.rewear.ui.reform.ReformAiFragment"
         android:label="ReformAi"
-        tools:layout="@layout/fragment_reform_ai" >
+        tools:layout="@layout/fragment_reform_ai">
         <action
             android:id="@+id/action_reformAiFragment_to_pickPartnerFragment"
             app:destination="@+id/pickPartnerFragment" />
@@ -116,7 +116,7 @@
         android:id="@+id/pickPartnerFragment"
         android:name="com.example.rewear.ui.reform.PickPartnerFragment"
         android:label="PickPartner"
-        tools:layout="@layout/fragment_pick_partner" >
+        tools:layout="@layout/fragment_pick_partner">
         <action
             android:id="@+id/action_pickPartnerFragment_to_reformFragment"
             app:destination="@+id/navigation_reform" />
@@ -169,16 +169,24 @@
         android:id="@+id/registrationFragment"
         android:name="com.example.rewear.ui.swap.RegistrationFragment"
         android:label="Registration"
-        tools:layout="@layout/fragment_registration" />
-    <action
-        android:id="@+id/action_registrationFragment_to_aiCategoryProcessingFragment"
-        app:destination="@+id/aiCategoryProcessingFragment" />
-    <action
-        android:id="@+id/action_registrationFragment_to_locationFragment"
-        app:destination="@+id/locationFragment" />
+        tools:layout="@layout/fragment_registration">
+        <action
+            android:id="@+id/action_registrationFragment_to_aiCategoryProcessingFragment"
+            app:destination="@+id/aiCategoryProcessingFragment" />
+        <action
+            android:id="@+id/action_registrationFragment_to_locationFragment"
+            app:destination="@+id/locationFragment" />
+        <action
+            android:id="@+id/action_registrationFragment_to_homeFragment"
+            app:destination="@+id/navigation_home"/>
+    </fragment>
     <fragment
         android:id="@+id/aiCategoryProcessingFragment"
         android:name="com.example.rewear.ui.swap.AICategoryProcessingFragment"
         android:label="AI Category"
-        tools:layout="@layout/fragment_ai_category_processing" />
+        tools:layout="@layout/fragment_ai_category_processing">
+        <action
+            android:id="@+id/action_aiCategoryProcessingFragment_to_registrationFragment"
+            app:destination="@+id/registrationFragment" />
+    </fragment>
 </navigation>
