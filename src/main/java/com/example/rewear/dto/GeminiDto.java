@@ -1,6 +1,7 @@
 package com.example.rewear.dto;
 
 import com.example.rewear.domain.enums.ReformType;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
 import java.util.List;
@@ -22,7 +23,8 @@ public class GeminiDto {
     @NoArgsConstructor
     @AllArgsConstructor
     public static class GeminiResponseDto{
-        private List<String> options;
+        @JsonProperty("recommendations")
+        private List<String> recommendations;
     }
 
 
@@ -30,7 +32,8 @@ public class GeminiDto {
     @Getter
     @Setter
     public static class SelectionRequestDto{
-        private String chosenOption;
+        @JsonProperty("option")
+        private String option;
     }
 
 
@@ -40,7 +43,8 @@ public class GeminiDto {
     @NoArgsConstructor
     @AllArgsConstructor
     public static class SelectionResponseDto{
-        private String previewUrl;
+        @JsonProperty("image_base64")
+        private String image_base64;
     }
 
 }

@@ -20,7 +20,7 @@ public class Reform {
     @Column(nullable = false)
     private String chosenOption;
 
-    @Column(nullable = false)
+    @Column(columnDefinition = "LONGTEXT")
     private String previewMediaUrl;
 
     @Enumerated(EnumType.STRING)
