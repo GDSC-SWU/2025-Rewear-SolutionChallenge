@@ -12,7 +12,7 @@ public class ReformDto {
     @Getter
     @Builder
     public static class ReformOrNotRequestDto{
-        private Long itemId;
+        //private Long itemId;
         private ReformType reformType;
     }
 

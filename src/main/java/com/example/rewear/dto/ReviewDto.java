@@ -1,7 +1,6 @@
 package com.example.rewear.dto;
 
 import com.example.rewear.domain.enums.ReviewTag;
-import jakarta.persistence.criteria.CriteriaBuilder;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

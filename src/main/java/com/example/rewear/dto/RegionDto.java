@@ -1,6 +1,5 @@
 package com.example.rewear.dto;
 
-import jdk.jfr.Name;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
