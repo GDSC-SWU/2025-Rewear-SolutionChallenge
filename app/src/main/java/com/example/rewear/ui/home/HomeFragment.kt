@@ -62,8 +62,6 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val navController = findNavController()
-
-
         navController.currentBackStackEntry?.savedStateHandle
             ?.getLiveData<String>("selectedAddress")
             ?.observe(viewLifecycleOwner) { address ->
@@ -77,23 +75,6 @@ class HomeFragment : Fragment() {
                 clothesAdapter.addItem(newClothes)
             }
 
-        val clickListener = View.OnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_locationFragment)
-        }
-
-        val searchClickListener = View.OnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_searchFragment)
-        }
-
-        val notificationClickListener = View.OnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_notificationFragment)
-        }
-
-
-        binding.icSearch.setOnClickListener(searchClickListener)
-        binding.icNotification.setOnClickListener(notificationClickListener)
-        binding.userLocation.setOnClickListener(clickListener)
-        binding.userLocationIc.setOnClickListener(clickListener)
 
         clothesList = mutableListOf(
             Clothes(
@@ -188,6 +169,27 @@ class HomeFragment : Fragment() {
             }
         }
         binding.clothesRecyclerView.adapter = clothesAdapter
+
+
+
+        val clickListener = View.OnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_locationFragment)
+        }
+
+        val searchClickListener = View.OnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_searchFragment)
+        }
+
+        val notificationClickListener = View.OnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_notificationFragment)
+        }
+
+
+        binding.icSearch.setOnClickListener(searchClickListener)
+        binding.icNotification.setOnClickListener(notificationClickListener)
+        binding.userLocation.setOnClickListener(clickListener)
+        binding.userLocationIc.setOnClickListener(clickListener)
+
 
     }
 
