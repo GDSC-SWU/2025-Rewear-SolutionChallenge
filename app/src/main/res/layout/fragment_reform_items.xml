@@ -98,16 +98,16 @@
             android:backgroundTint="@color/lightgray_bar"
             android:elevation="2dp"
             android:fontFamily="@font/pretendard_medium"
-            android:text="airpod case"
+            android:text=""
             android:textAllCaps="false"
             android:textColor="@color/sub_black"
             android:textSize="16sp"
             android:textAlignment="textStart"
-            app:icon="@drawable/ic_swap_check"
-            app:iconGravity="textStart"
-            app:iconPadding="20dp"
-            app:iconSize="20dp"
-            app:iconTint="@color/uncheck" />
+            android:maxLines="2"
+            android:ellipsize="none"
+            android:lineSpacingExtra="4dp"
+
+            />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_reform_item2"
@@ -117,15 +117,15 @@
             android:backgroundTint="@color/lightgray_bar"
             android:elevation="2dp"
             android:fontFamily="@font/pretendard_medium"
-            android:text="airpod case"
+            android:text=""
             android:textAllCaps="false"
             android:textColor="@color/sub_black"
             android:textSize="16sp"
-            app:icon="@drawable/ic_swap_check"
-            app:iconGravity="textStart"
-            app:iconPadding="20dp"
-            app:iconSize="20dp"
-            app:iconTint="@color/uncheck" />
+            android:maxLines="2"
+            android:ellipsize="none"
+            android:lineSpacingExtra="4dp"
+
+            />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_reform_item3"
@@ -135,15 +135,15 @@
             android:backgroundTint="@color/lightgray_bar"
             android:elevation="2dp"
             android:fontFamily="@font/pretendard_medium"
-            android:text="airpod case"
+            android:text=""
             android:textAllCaps="false"
             android:textColor="@color/sub_black"
             android:textSize="16sp"
-            app:icon="@drawable/ic_swap_check"
-            app:iconGravity="textStart"
-            app:iconPadding="20dp"
-            app:iconSize="20dp"
-            app:iconTint="@color/uncheck" />
+            android:maxLines="2"
+            android:ellipsize="none"
+            android:lineSpacingExtra="4dp"
+
+            />
 
 
     </com.google.android.material.button.MaterialButtonToggleGroup>
