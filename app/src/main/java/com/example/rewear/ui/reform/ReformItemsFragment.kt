@@ -52,7 +52,23 @@ class ReformItemsFragment : Fragment() {
         }
 
         binding.btnNext.setOnClickListener {
-            findNavController().navigate(R.id.action_reformItemsFragment_to_reformAiFragment)
+            val selectedButtonId = binding.toggleGroup.checkedButtonId
+
+            if (selectedButtonId != View.NO_ID) {
+                val selectedButton =
+                    binding.toggleGroup.findViewById<MaterialButton>(selectedButtonId)
+                val selectedText = selectedButton.text.toString()
+
+                val bundle = Bundle().apply {
+                    putString("selected_option", selectedText)
+                }
+                findNavController().navigate(
+                    R.id.action_reformItemsFragment_to_reformAiFragment,
+                    bundle
+                )
+            } else {
+                Toast.makeText(requireContext(), "옵션을 선택해주세요", Toast.LENGTH_SHORT).show()
+            }
         }
 
         binding.toggleGroup.addOnButtonCheckedListener { group, checkedId, isChecked ->
