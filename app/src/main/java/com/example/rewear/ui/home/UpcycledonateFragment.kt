@@ -37,7 +37,7 @@ class UpcycledonateFragment : Fragment() {
                 type = NotificationType.UPCYCLE,
                 userName = "Lee",
                 R.drawable.cloth_example,
-                title = "",
+                title = "Layering T-shirt",
                 message = "",
                 timeAgo = "1m ago"
             ),
@@ -45,7 +45,7 @@ class UpcycledonateFragment : Fragment() {
                 type = NotificationType.UPCYCLE,
                 userName = "Hayan",
                 R.drawable.cloth_example,
-                title = "",
+                title = "old jeans",
                 message = "",
                 timeAgo = "1m ago"
             ),
@@ -53,7 +53,7 @@ class UpcycledonateFragment : Fragment() {
                 type = NotificationType.UPCYCLE,
                 userName = "hyo",
                 R.drawable.cloth_example,
-                title = "",
+                title = "green dress",
                 message = "",
                 timeAgo = "1m ago"
             ),
@@ -61,7 +61,7 @@ class UpcycledonateFragment : Fragment() {
                 type = NotificationType.UPCYCLE,
                 userName = "Lee",
                 R.drawable.cloth_example,
-                title = "",
+                title = "checked shirt",
                 message = "",
                 timeAgo = "1m ago"
             ),
@@ -69,21 +69,28 @@ class UpcycledonateFragment : Fragment() {
                 type = NotificationType.UPCYCLE,
                 userName = "Amy",
                 R.drawable.cloth_example,
-                title = "",
+                title = "blue skirt",
                 message = "",
                 timeAgo = "1m ago"
             )
         )
-        notificationAdapter = NotificationAdapter(notificationList){notification ->
+        notificationAdapter = NotificationAdapter(notificationList) { notification ->
             if (isAdded && view != null) {
-                findNavController().navigate(R.id.action_upcycledonate_to_donateReformSelection)
+                val bundle = Bundle().apply {
+                    putString("title", notification.title)
+                }
+                findNavController().navigate(
+                    R.id.action_upcycledonate_to_donateReformSelection,
+                    bundle
+                )
             }
         }
-        binding.notificationUpcycleRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+        binding.notificationUpcycleRecyclerView.layoutManager =
+            LinearLayoutManager(requireContext())
         binding.notificationUpcycleRecyclerView.adapter = notificationAdapter
 
-        val divider=DividerItemDecoration(context,DividerItemDecoration.VERTICAL)
-        ContextCompat.getDrawable(requireContext(),R.drawable.recycler_divider)?.let {
+        val divider = DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
+        ContextCompat.getDrawable(requireContext(), R.drawable.recycler_divider)?.let {
             divider.setDrawable(it)
         }
         binding.notificationUpcycleRecyclerView.addItemDecoration(divider)

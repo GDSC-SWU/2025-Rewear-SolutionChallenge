@@ -29,13 +29,21 @@ class DonateReformSelectionFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val title = arguments?.getString("title") ?: ""
+
         binding.BtnClose.setOnClickListener {
 
             findNavController().popBackStack()
         }
 
-        binding.btnUpcycle.setOnClickListener{
-            findNavController().navigate(R.id.action_donateReformSelectionFragment_to_reformItemsFragment)
+        binding.btnUpcycle.setOnClickListener {
+            val bundle = Bundle().apply {
+                putString("title", title)
+            }
+            findNavController().navigate(
+                R.id.action_donateReformSelectionFragment_to_reformItemsFragment,
+                bundle
+            )
         }
     }
 }
