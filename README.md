@@ -10,6 +10,9 @@ When your closet is overflowing, the usual options are throwing things away or r
 <img src= "https://github.com/user-attachments/assets/34ed7575-bd87-4ca4-a73a-752f49d53087" width="150" height="150"/>
 </p>
 
+Fast fashion refers to the business of rapidly producing and selling large quantities of clothing at low prices, quickly reflecting the latest trends. This culture encourages easy and excessive consumption, often leading to clothes being discarded after only a few wears.
+
+According to Institute for Climate Change Action, discarding a single wool coat emits as much carbon as throwing away 912 paper cups. To address this environmental impact, we need to foster a culture of clothing exchange, upcycling, and reuse instead of disposal.
 
 ## 📹 Demo Video
 
