@@ -1,7 +1,7 @@
 # 👕 2025-Rewear-SolutionChallenge
 
 ## 📢 Project Introduction
-
+When you have a lot of clothes in your closet, you usually throw them away or sell them secondhand. However, selling them secondhand can be too much of a hassle. For those who want to easily exchange clothes or have a new experience through upcycling, we provide a service through the Rewear app.
 
 
 ## 📌 Our Goal
