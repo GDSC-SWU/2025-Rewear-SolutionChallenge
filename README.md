@@ -3,8 +3,9 @@
 ## 📢 Project Introduction
 **Rewear is a platform that encourages sustainable consumption by reducing fast fashion waste through clothing exchange and upcycling.**
 
-When your closet is overflowing, the usual options are throwing things away or reselling, but secondhand selling can be too much hassle. Rewear provides a simple and enjoyable way to exchange clothes and discover new value through upcycling — all in one service.
+When your closet is overflowing, the usual options are throwing things away or reselling, but secondhand selling can be too much hassle. we provides a simple and enjoyable way **to exchange clothes and discover new value through upcycling** — all in one service.
 
+“Rewear enables 1:1 direct clothing swaps, unlike typical buy-sell platforms — making exchanges **cost-free, mutually satisfying, and eco-friendly**.”
 
 ## 📌 Our Goal : Let's reduce fast fashion culture !
 <p align = "center">
