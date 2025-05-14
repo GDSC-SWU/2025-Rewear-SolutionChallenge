@@ -12,7 +12,7 @@
 
 ## 👩🏻‍💻Contribution
 
-|Member|         |             |           |           |
+|Member| Minju Seong | Yujin Lee | Haneul Lee | Yeeun Jeon |
 |:--:|:--:|:--:|:--:|:--:|
-|Role|         |          |                 |
+|Role| BackEnd | FrontEnd | UX/UI | AI/ML |
 |Profile|      |         |           |                       |
