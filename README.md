@@ -18,6 +18,8 @@ When your closet is overflowing, the usual options are throwing things away or r
 
 ## 📱 How to Start
 
+## 👗 How to Use
+
 ## 👩🏻‍💻Contribution
 
 |Member| Minju Seong | Yujin Lee | Haneul Lee | Yeeun Jeon |
