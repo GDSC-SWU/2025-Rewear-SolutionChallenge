@@ -3,6 +3,7 @@
 ## 📢 Project Introduction
 
 ## 📌 Our Goal
+![Image](https://github.com/user-attachments/assets/34ed7575-bd87-4ca4-a73a-752f49d53087)
 
 ## 📹 Demo Video
 
