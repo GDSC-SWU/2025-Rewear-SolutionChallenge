@@ -1,4 +1,4 @@
-# 2025-Rewear-SolutionChallenge
+# 👕 2025-Rewear-SolutionChallenge
 
 ## 📢 Project Introduction
 
