@@ -5,8 +5,6 @@
 
 When your closet is overflowing, the usual options are throwing things away or reselling, but secondhand selling can be too much hassle. we provides a simple and enjoyable way **to exchange clothes and discover new value through upcycling** — all in one service.
 
-“Rewear enables 1:1 direct clothing swaps, unlike typical buy-sell platforms — making exchanges **cost-free, mutually satisfying, and eco-friendly**.”
-
 ## 📌 Our Goal : Let's reduce fast fashion culture !
 <p align = "center">
 <img src= "https://github.com/user-attachments/assets/34ed7575-bd87-4ca4-a73a-752f49d53087" width="150" height="150"/>
