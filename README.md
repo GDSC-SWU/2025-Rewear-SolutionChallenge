@@ -15,8 +15,9 @@
 ## 📱 How to Start
 
 ## 👩🏻‍💻Contribution
-
+<p align = "center">
 |Member| Minju Seong | Yujin Lee | Haneul Lee | Yeeun Jeon |
 |:--:|:--:|:--:|:--:|:--:|
 |Role| BackEnd | FrontEnd | UX/UI | AI/ML |
 |Profile|      |         |           |                       |
+</p>
