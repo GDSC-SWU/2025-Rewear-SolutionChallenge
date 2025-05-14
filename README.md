@@ -3,7 +3,7 @@
 ## 📢 Project Introduction
 Rewear is a platform that encourages sustainable consumption by reducing fast fashion waste through clothing exchange and upcycling.
 
-When you have a lot of clothes in your closet, you usually throw them away or sell them secondhand. However, selling them secondhand can be too much of a hassle. For those who want to easily exchange clothes or have a new experience through upcycling, we provide a service through the Rewear app.
+When your closet is overflowing, the usual options are throwing things away or reselling, but secondhand selling can be tiresome and inconvenient. Rewear provides a simple and enjoyable way to exchange clothes and discover new value through upcycling — all in one service.
 
 
 ## 📌 Our Goal
