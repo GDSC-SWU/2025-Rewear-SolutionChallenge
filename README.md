@@ -1,6 +1,7 @@
 # 👕 2025-Rewear-SolutionChallenge
 
 ## 📢 Project Introduction
+When your closet is overflowing, the usual options are throwing things away or reselling, but secondhand selling can be tiresome and inconvenient. Rewear provides a simple and enjoyable way to exchange clothes and discover new value through upcycling — all in one service. 
 
 ## 📌 Our Goal
 <p align = "center">
