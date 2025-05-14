@@ -1,7 +1,7 @@
 # 👕 2025-Rewear-SolutionChallenge
 
 ## 📢 Project Introduction
-Rewear is a platform that encourages sustainable consumption by reducing fast fashion waste through clothing exchange and upcycling.
+**Rewear is a platform that encourages sustainable consumption by reducing fast fashion waste through clothing exchange and upcycling.**
 
 When your closet is overflowing, the usual options are throwing things away or reselling, but secondhand selling can be tiresome and inconvenient. Rewear provides a simple and enjoyable way to exchange clothes and discover new value through upcycling — all in one service.
 
