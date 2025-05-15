@@ -26,7 +26,7 @@ To solve this problems, we need to foster a culture of clothing exchange, upcycl
 
 ## 👩🏻‍💻contributors
 
-|Member| Minju Seong | Yujin Lee | Haneul Lee | Yeeun Jeon |
+|Member| Minju Sung | Yujin Lee | Haneul Lee | Yeeun Jeon |
 |:--:|:--:|:--:|:--:|:--:|
 |Role| BackEnd | FrontEnd | UX/UI | AI/ML |
 |Profile|      |         |           |                       |
