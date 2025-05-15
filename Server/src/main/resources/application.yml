@@ -1,0 +1,33 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/rewaer
+    username: root
+    password: mysql
+  thymeleaf:
+    cache: false
+
+  #spring data jpa ??
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    open-in-view: false
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+ai:
+  api:
+    base-url: https://clothing-api-949882041921.us-central1.run.app
+
+logging:
+  level:
+    # RestTemplate 자체 로그
+    org.springframework.web.client.RestTemplate: DEBUG
+    # Spring이 감싸는 HTTP 요청 공장(factory) 로그
+    org.springframework.http.client: DEBUG
+    # (만약 Apache HttpComponents 사용 시)
+    org.apache.http: DEBUG
+    org.apache.http.wire: DEBUG
