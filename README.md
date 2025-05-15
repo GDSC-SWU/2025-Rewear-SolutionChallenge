@@ -29,5 +29,5 @@ To solve this problems, we need to foster a culture of clothing exchange, upcycl
 |Member| Minju Sung | Yujin Lee | Haneul Lee | Yeeun Jeon |
 |:--:|:--:|:--:|:--:|:--:|
 |Role| BackEnd | FrontEnd | UX/UI | AI/ML |
-|Profile|      |         | <img src= "Image(https://github.com/user-attachments/assets/c86d20f1-1d8d-4442-a786-46b3a666f68f" width="100" height="100"/>  |                       |
+|Profile|      |         | <img src= "https://github.com/user-attachments/assets/c86d20f1-1d8d-4442-a786-46b3a666f68f" width="100" height="100"/>  |                       |
 
