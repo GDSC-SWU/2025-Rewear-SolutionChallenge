@@ -3,48 +3,57 @@ package com.example.rewear.ui.home
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.rewear.databinding.ItemClothesBinding
 
+/**
+ * Adapter for displaying a list of [Clothes] items in a RecyclerView.
+ */
 class ClothesAdapter(
     private var clothesList: MutableList<Clothes>,
     private val onItemClick:(Clothes)->Unit
-): RecyclerView.Adapter<ClothesAdapter.ClothesViewHolder>(){
+): RecyclerView.Adapter<ClothesAdapter.ClothesViewHolder>() {
 
+    /**
+     * ViewHolder for a single [Clothes] item.
+     * Handles binding data to the item's view.
+     */
+    inner class ClothesViewHolder(val binding: ItemClothesBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun bind(item: Clothes) {
+            binding.clothesName.text = item.name
+            binding.clothesLabel.text = item.label
+            binding.clothesLocation.text = item.location
+            binding.clothesAgo.text = " . ${item.timeAgo}"
+            binding.likeCount.text = item.likeCount.toString()
 
-    fun addItem(newClothes: Clothes){
-        clothesList.add(0,newClothes)
-        notifyItemInserted(0)
-    }
+            if (item.imageList.isNotEmpty()) {
+                Glide.with(binding.clothesImages.context)
+                    .load(item.imageList[0]) // Loads the first image from the list
+                    .into(binding.clothesImages)
+            } else {
+                binding.clothesImages.setImageDrawable(null)
+            }
 
-    inner class ClothesViewHolder(val binding:ItemClothesBinding):
-        RecyclerView.ViewHolder(binding.root){
-        fun bind(item:Clothes){
-            binding.clothesName.text=item.name
-
-            binding.root.setOnClickListener{
+            binding.root.setOnClickListener {
                 onItemClick(item)
             }
         }
-            }
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ClothesViewHolder {
-        val binding=ItemClothesBinding.inflate(LayoutInflater.from(parent.context),parent,false)
+        // Inflates the item layout and creates a ViewHolder.
+        val binding = ItemClothesBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ClothesViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: ClothesViewHolder, position: Int) {
-        val clothes=clothesList[position]
-        val b=holder.binding
-        holder.bind(clothes)
-
-        b.clothesImages.setImageResource(clothes.imageList[0])
-        b.clothesLabel.text=clothes.label
-        b.clothesName.text=clothes.name
-        b.clothesLocation.text=clothes.location
-        b.clothesAgo.text=" . ${clothes.timeAgo}"
-        b.likeCount.text="${clothes.likeCount}"
+        // Binds the data at the given position to the ViewHolder.
+        holder.bind(clothesList[position])
     }
 
-    override fun getItemCount()=clothesList.size
-
+    override fun getItemCount(): Int {
+        // Returns the total number of items in the list.
+        return clothesList.size
     }
+}

@@ -1,3 +1,13 @@
+import java.util.Properties
+
+val localProperties = Properties()
+val localPropertiesFile = rootProject.file("local.properties")
+if (localPropertiesFile.exists() && localPropertiesFile.isFile) {
+    localPropertiesFile.inputStream().use { input ->
+        localProperties.load(input)
+    }
+}
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -5,7 +15,6 @@ plugins {
     id("kotlin-kapt")
     id("kotlin-parcelize")
 }
-
 android {
     namespace = "com.example.rewear"
     compileSdk = 35
@@ -17,7 +26,7 @@ android {
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
-
+        manifestPlaceholders["MAPS_API_KEY"] = localProperties.getProperty("MAPS_API_KEY") ?: "YOUR_API_KEY_PLACEHOLDER_IF_NOT_FOUND"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -56,18 +65,21 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
     implementation(libs.cardview)
     implementation(libs.google.maps)
     implementation(libs.google.location)
+
     implementation(libs.androidx.viewpager2)
     implementation(libs.glide)
     implementation(libs.dotsindicator)
     implementation(libs.photo.view)
-    implementation(libs.navigation.fragment.ktx)
-    implementation(libs.navigation.ui.ktx)
+
     implementation(libs.retrofit)
     implementation(libs.retrofit.gson)
     implementation(libs.okhttp)
     implementation(libs.gson)
     implementation(libs.okhttp.logging)
+
+    implementation(libs.volley)
 }

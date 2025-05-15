@@ -23,6 +23,7 @@ nav="2.7.7"
 retrofit="2.9.0"
 okhttp="4.9.0"
 gson="2.10.1"
+volley="1.2.1"
 
 
 [libraries]
@@ -51,6 +52,7 @@ retrofit-gson={module="com.squareup.retrofit2:converter-gson",version.ref="retro
 okhttp={module="com.squareup.okhttp3:okhttp",version.ref="okhttp"}
 gson={module="com.google.code.gson:gson",version.ref="gson"}
 okhttp-logging={module="com.squareup.okhttp3:logging-interceptor",version.ref="okhttp"}
+volley={module="com.android.volley:volley",version.ref="volley"}
 
 
 [plugins]
