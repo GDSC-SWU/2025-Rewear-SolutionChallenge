@@ -7,17 +7,19 @@ import com.bumptech.glide.Glide
 import com.example.rewear.databinding.ItemDetailImageBinding
 
 class DetailImageAdapter(
-    private val imageUrls: List<Int>,
+    private val imageUrls: List<String>,
     private val onImageClick: (Int) -> Unit
 ) : RecyclerView.Adapter<DetailImageAdapter.ViewHolder>() {
 
     inner class ViewHolder(private val binding: ItemDetailImageBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(imageUrl: Int) {
-            binding.detailImage.setImageResource(imageUrl)
+        fun bind(imageUrl: String) {
+            Glide.with(binding.root.context)
+                .load(imageUrl)
+                .into(binding.detailImage)
             binding.root.setOnClickListener {
-                onImageClick(imageUrl)
+                onImageClick(adapterPosition)
             }
         }
     }
