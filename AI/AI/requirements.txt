@@ -1,9 +1,0 @@
-fastapi
-uvicorn
-pydantic
-python-multipart
-google-generativeai
-google-cloud-aiplatform
-google-auth
-python-dotenv
-Pillow
