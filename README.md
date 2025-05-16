@@ -20,6 +20,7 @@ To solve this problems, we need to foster a culture of clothing exchange, upcycl
 ## 📹 Demo Video
 
 ## 🛠 Technology Stack
+![Image](https://github.com/user-attachments/assets/9076b913-c8fc-4de8-a9d0-cc2b677e4938)
 
 ## 📱 How to Start
 
