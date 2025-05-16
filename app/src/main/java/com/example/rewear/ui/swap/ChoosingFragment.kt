@@ -47,17 +47,15 @@ class ChoosingFragment : Fragment() {
         }
 
         val nextClickListener = View.OnClickListener {
-            findNavController().navigate(R.id.action_choosingFragment_to_timeSelectingFragment)
+            findNavController().navigate(R.id.action_choosingFragment_to_swapConfirmedFragment)
         }
         binding.btnNext.setOnClickListener(nextClickListener)
 
         val imageList = listOf(
-            R.drawable.cloth_example,
-            R.drawable.cloth_example,
-            R.drawable.cloth_example,
-            R.drawable.cloth_example,
-            R.drawable.cloth_example,
-            R.drawable.cloth_example,
+            R.drawable.skirt,
+            R.drawable.sweatpants,
+            R.drawable.sweatshirt,
+            R.drawable.padding,
         )
 
         val adapter = SwapClothingAdapter(imageList)

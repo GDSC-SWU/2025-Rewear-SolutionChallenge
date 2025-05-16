@@ -6,7 +6,7 @@ data class Notifications(
     val imageResId:Int,
     val title:String,
     val message:String,
-    val timeAgo:String
+    val timeAgo:String,
 )
 
 

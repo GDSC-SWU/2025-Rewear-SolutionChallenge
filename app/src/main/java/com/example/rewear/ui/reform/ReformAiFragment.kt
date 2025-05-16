@@ -41,6 +41,9 @@ class ReformAiFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val originalItemTitle = arguments?.getString("originalItemTitle") ?: ""
+        val originalItemImageResId = arguments?.getInt("originalItemImageResId", 0)
+
         val selectedOption = arguments?.getString("selected_option")
 
         selectedOption?.let {
@@ -54,8 +57,8 @@ class ReformAiFragment : Fragment() {
 
         binding.btnNext.setOnClickListener {
             findNavController().navigate(R.id.action_reformAiFragment_to_pickPartnerFragment)
-        }
 
+        }
 
     }
 
@@ -76,7 +79,7 @@ class ReformAiFragment : Fragment() {
         client.newCall(request).enqueue(object : Callback {
             override fun onFailure(call: Call, e: IOException) {
                 requireActivity().runOnUiThread {
-                    Toast.makeText(requireContext(), "이미지 생성 실패", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "Error", Toast.LENGTH_SHORT).show()
                 }
             }
 
@@ -98,14 +101,14 @@ class ReformAiFragment : Fragment() {
                         }
                     } else {
                         requireActivity().runOnUiThread {
-                            Toast.makeText(requireContext(), "이미지를 불러올 수 없습니다", Toast.LENGTH_SHORT)
+                            Toast.makeText(requireContext(), "Error", Toast.LENGTH_SHORT)
                                 .show()
                         }
                     }
                 } catch (e: JSONException) {
                     e.printStackTrace()
                     requireActivity().runOnUiThread {
-                        Toast.makeText(requireContext(), "응답 파싱 오류", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(requireContext(), "Error", Toast.LENGTH_SHORT).show()
                     }
                 }
             }

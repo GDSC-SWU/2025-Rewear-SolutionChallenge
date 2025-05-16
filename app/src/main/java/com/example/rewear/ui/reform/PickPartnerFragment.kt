@@ -30,11 +30,11 @@ class PickPartnerFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val partners = listOf(
-            Partner("Lilly Willson", R.drawable.reform_corp1, isSelected = true),
-            Partner("Lilly Willson", R.drawable.reform_corp2),
-            Partner("Lilly Willson", R.drawable.reform_corp3),
-            Partner("Lilly Willson", R.drawable.reform_corp4),
-            Partner("Lilly Willson", R.drawable.reform_corp5),
+            Partner("Lilly", R.drawable.reform_corp1, isSelected = true),
+            Partner("Stella", R.drawable.reform_corp2),
+            Partner("Kate", R.drawable.reform_corp3),
+            Partner("Ena", R.drawable.reform_corp4),
+            Partner("Grace", R.drawable.reform_corp5),
         )
 
         val adapter = PartnerAdapter(partners)

@@ -1,5 +1,6 @@
 package com.example.rewear.ui.home
 
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -26,93 +27,85 @@ class HomeFragment : Fragment() {
 
     private lateinit var clothesAdapter: ClothesAdapter
 
-    private val originalClothesDataSource = mutableListOf(
-        Clothes(
-            "1",
-            imageList = listOf(
-                "https://picsum.photos/id/101/159/186",
-                "https://picsum.photos/id/102/159/186",
-                "https://picsum.photos/id/103/159/186"
+    private val originalClothesDataSource: MutableList<Clothes> by lazy {
+        val localImageUri1 = Uri.parse("android.resource://${requireContext().packageName}/${R.drawable.cloth_example2}").toString()
+        val localImageUri2 = Uri.parse("android.resource://${requireContext().packageName}/${R.drawable.cloth_example}").toString()
+        val localImageUri3 = Uri.parse("android.resource://${requireContext().packageName}/${R.drawable.cloth_example3}").toString()
+        val localImageUri4 = Uri.parse("android.resource://${requireContext().packageName}/${R.drawable.cloth_example4}").toString()
+        val localImageUri5 = Uri.parse("android.resource://${requireContext().packageName}/${R.drawable.cloth_example5}").toString()
+        val localImageUri6 = Uri.parse("android.resource://${requireContext().packageName}/${R.drawable.example3}").toString()
+        mutableListOf(
+            // You can still mix with items using remote URLs if needed
+            Clothes(
+                "1",
+                imageList = listOf(localImageUri2),
+                "Zip-up Hoodie",
+                "Letter Open Hoodie",
+                "Mapo-dong",
+                "1m ago",
+                5,
+                "description",
+                "In-person Trade"
             ),
-            "Tops",
-            "Letter Open Hoodie",
-            "Mapo-dong",
-            "1m ago",
-            5,
-            "description",
-            "In-person Trade"
-        ),
-        Clothes(
-            "2",
-            imageList = listOf(
-                "https://picsum.photos/id/201/159/186",
-                "https://picsum.photos/id/202/159/186"
+            Clothes(
+                "2",
+                imageList = listOf(localImageUri1),
+                "Shirt",
+                "Layering T-shirt",
+                "Mapo-dong",
+                "1m ago",
+                5,
+                "description",
+                "In-person Trade"
             ),
-            "Tops",
-            "Layering T-shirt",
-            "Mapo-dong",
-            "1m ago",
-            5,
-            "description",
-            "In-person Trade"
-        ),
-        Clothes(
-            "3",
-            imageList = listOf(
-                "https://picsum.photos/seed/hoodie_pics/159/186",
-                "https://picsum.photos/seed/hoodie_pics_alt/159/186"
+            Clothes(
+                "3",
+                imageList = listOf(localImageUri4),
+                "Jeans",
+                "Ballon pants",
+                "Mapo-dong",
+                "1m ago",
+                5,
+                "description",
+                "In-person Trade"
             ),
-            "Tops",
-            "Letter Open Hoodie",
-            "Mapo-dong",
-            "1m ago",
-            5,
-            "description",
-            "In-person Trade"
-        ),
-        Clothes(
-            "4",
-            imageList = listOf(
-                "https://picsum.photos/id/305/159/186",
-                "https://picsum.photos/id/306/159/186"
+            Clothes(
+                "4",
+                imageList = listOf(localImageUri5),
+                "Skirt",
+                "Check mini skirt",
+                "Mapo-dong",
+                "1m ago",
+                5,
+                "description",
+                "In-person Trade"
             ),
-            "Tops",
-            "Layering T-shirt",
-            "Seokgyo-dong",
-            "1m ago",
-            5,
-            "description",
-            "In-person Trade"
-        ),
-        Clothes(
-            "5",
-            imageList = listOf(
-                "https://picsum.photos/seed/another_hoodie/159/186",
-                "https://picsum.photos/seed/detail_shot/158/186"
+            Clothes(
+                "5",
+                imageList = listOf(localImageUri3),
+                "Dress",
+                "Pink dress",
+                "Seokgyo-dong",
+                "1m ago",
+                5,
+                "description",
+                "In-person Trade"
             ),
-            "Tops",
-            "Letter Open Hoodie",
-            "Seokgyo-dong",
-            "1m ago",
-            5,
-            "description",
-            "In-person Trade"
-        ),
-        Clothes(
-            "6",
-            imageList = listOf(
-                "https://picsum.photos/seed/another_hoodie/159/186",
-                "https://picsum.photos/seed/detail_shot/158/186"
+            Clothes(
+                "6",
+                imageList = listOf(localImageUri6),
+                "Shirt",
+                "Ribbon Layered Tee",
+                "Seokgyo-dong",
+                "1m ago",
+                5,
+                "description",
+                "In-person Trade"
             ),
-            "Tops",
-            "Layering T-shirt",
-            "Seokgyo-dong",
-            "1m ago",
-            5,
-            "description",
-            "In-person Trade"
+
+            // Add or modify other items as needed
         )
-    )
+    }
 
     private val displayedClothesList = mutableListOf<Clothes>()
 

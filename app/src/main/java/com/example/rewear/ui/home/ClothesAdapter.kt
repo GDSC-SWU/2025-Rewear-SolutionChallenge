@@ -28,6 +28,7 @@ class ClothesAdapter(
             binding.likeCount.text = item.likeCount.toString()
 
             if (item.imageList.isNotEmpty()) {
+                val radiusInPixels = 10
                 Glide.with(binding.clothesImages.context)
                     .load(item.imageList[0]) // Loads the first image from the list
                     .into(binding.clothesImages)

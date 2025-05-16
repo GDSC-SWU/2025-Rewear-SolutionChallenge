@@ -2,6 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:add="http://schemas.android.com/tools"
     android:fillViewport="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -48,12 +49,13 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/ic_search"
+            android:id="@+id/ic_search2"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginVertical="16dp"
             android:layout_marginEnd="45dp"
-            android:src="@drawable/ic_search"
+            android:src="@drawable/ic_search2"
+            add:tint="@color/black"
             app:layout_constraintEnd_toEndOf="@+id/ic_share"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -343,7 +345,6 @@
             android:layout_marginTop="20dp"
             android:layout_marginEnd="2dp"
             android:src="@drawable/ic_heart"
-            app:tint="@color/heart"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/viewing_count_border"/>
 
