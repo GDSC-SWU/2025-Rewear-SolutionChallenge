@@ -15,7 +15,7 @@ Fast fashion refers to the business of rapidly producing and selling large quant
 
 *According to Institute for Climate Change Action, discarding a single wool coat emits as much carbon as throwing away 912 paper cups.*
 <p align = "center">
-<img src= "https://github.com/user-attachments/assets/68847914-8aa7-4452-9acd-3b4f0a45cdb5" width="500" height="100"/> 
+<img src= "https://github.com/user-attachments/assets/68847914-8aa7-4452-9acd-3b4f0a45cdb5" width="500" height="150"/> 
 </p>
 To solve this problems, we need to foster a culture of clothing exchange, upcycling, and reuse instead of disposal.
 
