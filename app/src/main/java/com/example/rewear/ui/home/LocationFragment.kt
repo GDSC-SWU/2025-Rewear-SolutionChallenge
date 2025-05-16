@@ -81,7 +81,7 @@ class LocationFragment : Fragment(), OnMapReadyCallback {
             if (locationName.isNotEmpty()) {
                 searchLocationOnMap(locationName)
             } else {
-                Toast.makeText(requireContext(), "주소를 입력해주세요.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Enter the address", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -114,7 +114,7 @@ class LocationFragment : Fragment(), OnMapReadyCallback {
                     if (addressList != null && addressList.isNotEmpty()) {
                         fullAddressFromGeocoder =
                             addressList[0].getAddressLine(0) ?: "Unknown location"
-                        // 영어용 extractDong 함수 사용
+
                         extractedDong = extractDong(fullAddressFromGeocoder)
                         if (extractedDong == null) {
                             Log.w(
@@ -304,12 +304,9 @@ class LocationFragment : Fragment(), OnMapReadyCallback {
             "http://35.216.19.128:8080/api/location",
             json,
             { response ->
-                Toast.makeText(requireContext(), "위치 저장 완료:$address", Toast.LENGTH_SHORT).show()
                 callback(true)
             },
             { error ->
-                Toast.makeText(requireContext(), "위치 전송 실패 : ${error.message}", Toast.LENGTH_SHORT)
-                    .show()
                 callback(false)
             }
 

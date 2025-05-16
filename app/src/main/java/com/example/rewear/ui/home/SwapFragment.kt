@@ -37,42 +37,27 @@ class SwapFragment : Fragment() {
             Notifications(
                 type = NotificationType.SWAP_REQUEST,
                 userName = "Lee",
-                R.drawable.cloth_example,
+                R.drawable.shorts,
                 title = "",
                 message = "",
                 timeAgo = "1m ago"
             ),
-            Notifications(
-                type = NotificationType.SWAP_REQUEST,
-                userName = "Hayan",
-                R.drawable.cloth_example,
-                title = "",
-                message = "",
-                timeAgo = "1m ago"
-            ),
+
             Notifications(
                 type = NotificationType.SWAP_SUCCESSFUL,
                 userName = "hyo",
-                R.drawable.cloth_example,
+                R.drawable.jeans,
                 title = "",
                 message = "",
-                timeAgo = "1m ago"
-            ),
-            Notifications(
-                type = NotificationType.SWAP_SUCCESSFUL,
-                userName = "Lee",
-                R.drawable.cloth_example,
-                title = "",
-                message = "",
-                timeAgo = "1m ago"
+                timeAgo = "3days ago"
             ),
             Notifications(
                 type = NotificationType.SWAP_FAILED,
                 userName = "Amy",
-                R.drawable.cloth_example,
+                R.drawable.knit,
                 title = "",
                 message = "",
-                timeAgo = "1m ago"
+                timeAgo = "7days ago"
             )
         )
         notificationAdapter = NotificationAdapter(notificationList) { notification ->

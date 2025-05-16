@@ -2,6 +2,7 @@ package com.example.rewear.ui.swap
 
 import android.app.Dialog
 import android.location.Geocoder
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -31,14 +32,16 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-
+/**
+ * Fragment to display the details of a selected [Clothes] item.
+ */
 class DetailFragment : Fragment() {
     private var _binding: FragmentDetailBinding? = null
     private val binding get() = _binding!!
 
     private var currentDisplayItem: Clothes? = null
-    private var clothesList: MutableList<Clothes> = mutableListOf()
 
+    private var relatedItemsList: MutableList<Clothes> = mutableListOf()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -66,6 +69,7 @@ class DetailFragment : Fragment() {
         }
 
         currentDisplayItem = initialClothesData
+        setupTemporaryRelatedItems()
         populateUiWithData(currentDisplayItem!!)
 
         fetchItemDetailsAndUpdate(initialClothesData.id)
@@ -90,14 +94,13 @@ class DetailFragment : Fragment() {
         binding.likeCount.text = clothes.likeCount.toString()
 
 
-
         val imageAdapter = DetailImageAdapter(clothes.imageList) { imageUrl ->
             showEnlargedImage(imageUrl.toString())
         }
         binding.detailImg.adapter = imageAdapter
         binding.relatedRecyclerView.layoutManager =
             LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-        binding.relatedRecyclerView.adapter = ClothesAdapter(clothesList) { selectedClothes ->
+        binding.relatedRecyclerView.adapter = ClothesAdapter(relatedItemsList) { selectedClothes ->
 
         }
 
@@ -108,7 +111,7 @@ class DetailFragment : Fragment() {
             }
         }
 
-        if (!clothes.location.isNullOrBlank()) {
+        if (clothes.location.isNotBlank()) {
             updateMapLocation(clothes.location, clothes.name)
         }
     }
@@ -118,35 +121,57 @@ class DetailFragment : Fragment() {
 
         RetrofitClientApp.apiService.getItemDetail(itemId)
             .enqueue(object : Callback<ItemDetailResponse> {
-                override fun onResponse(call: Call<ItemDetailResponse>, response: Response<ItemDetailResponse>) {
+                override fun onResponse(
+                    call: Call<ItemDetailResponse>,
+                    response: Response<ItemDetailResponse>
+                ) {
                     if (_binding == null) return
 
                     if (response.isSuccessful) {
                         val detailsFromServer = response.body()
                         if (detailsFromServer != null) {
+                            val imageListToUse =
+                                if (currentDisplayItem?.imageList?.isNotEmpty() == true) {
+                                    currentDisplayItem!!.imageList
+                                } else {
+                                    detailsFromServer.imageUrls
+                                }
                             currentDisplayItem = currentDisplayItem?.copy(
                                 name = detailsFromServer.title,
                                 label = detailsFromServer.category,
-                                imageList = detailsFromServer.imageUrls,
-                                description = detailsFromServer.description ?: currentDisplayItem?.description ?: "",
-                                swapMethod = detailsFromServer.swapMethod ?: currentDisplayItem?.swapMethod ?: ""
+                                imageList = imageListToUse,
+                                description = detailsFromServer.description
+                                    ?: currentDisplayItem?.description ?: "",
+                                swapMethod = detailsFromServer.swapMethod
+                                    ?: currentDisplayItem?.swapMethod ?: ""
                             )
                             currentDisplayItem?.let { populateUiWithData(it) }
                         } else {
-                            Toast.makeText(requireContext(), "아이템 상세 정보를 가져오지 못했습니다 (응답 데이터 없음).", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(
+                                requireContext(),
+                                "Failed to get item details (no response data).",
+                                Toast.LENGTH_SHORT
+                            ).show()
                         }
                     } else {
                         if (response.code() == 404) {
-                            Toast.makeText(requireContext(), "아이템을 찾을 수 없습니다 (삭제되었을 수 있습니다).", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(
+                                requireContext(),
+                                "Item not found (it may have been deleted).",
+                                Toast.LENGTH_SHORT
+                            ).show()
                         } else {
-                            Toast.makeText(requireContext(), "상세 정보 로드 실패: ${response.code()}", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(
+                                requireContext(),
+                                "Failed to load details. Error: ${response.code()}",
+                                Toast.LENGTH_SHORT
+                            ).show()
                         }
                     }
                 }
 
                 override fun onFailure(call: Call<ItemDetailResponse>, t: Throwable) {
                     if (_binding == null) return
-                    Toast.makeText(requireContext(), "상세 정보 로드 중 네트워크 오류: ${t.message}", Toast.LENGTH_SHORT).show()
                 }
             })
     }
@@ -155,36 +180,45 @@ class DetailFragment : Fragment() {
         if (_binding == null || context == null) return
 
         binding.BtnSwapNow.isEnabled = false
-
         val swapRequest = SwapRequest(swapStatus = "PENDING")
 
         RetrofitClientApp.apiService.requestSwap(itemId, swapRequest)
             .enqueue(object : Callback<SwapResponse> {
-                override fun onResponse(call: Call<SwapResponse>, response: Response<SwapResponse>) {
+                override fun onResponse(
+                    call: Call<SwapResponse>,
+                    response: Response<SwapResponse>
+                ) {
                     if (_binding == null) return
 
                     if (response.isSuccessful && response.code() == 201) {
                         val swapResponseData = response.body()
-                        Log.d("DetailFragment", "스왑 요청 성공: $swapResponseData")
-                        Toast.makeText(requireContext(), "교환 요청이 전송되었습니다!", Toast.LENGTH_SHORT).show()
-                        binding.BtnSwapNow.text = "교환 요청됨"
+
+                        binding.BtnSwapNow.text = "Swap Requested"
                     } else {
-                        val errorBody = response.errorBody()?.string() ?: "알 수 없는 에러"
-                        Log.e("DetailFragment", "스왑 요청 실패: ${response.code()} - $errorBody")
-                        Toast.makeText(requireContext(), "교환 요청에 실패했습니다: ${response.code()}", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(
+                            requireContext(),
+                            "Failed to send swap request. Error: ${response.code()}",
+                            Toast.LENGTH_SHORT
+                        ).show()
                         binding.BtnSwapNow.isEnabled = true
                     }
                 }
 
                 override fun onFailure(call: Call<SwapResponse>, t: Throwable) {
                     if (_binding == null) return
-                    Log.e("DetailFragment", "스왑 요청 네트워크 오류: ${t.message}", t)
-                    Toast.makeText(requireContext(), "네트워크 오류로 교환 요청에 실패했습니다.", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        requireContext(),
+                        "Swap request failed due to a network error.",
+                        Toast.LENGTH_SHORT
+                    ).show()
                     binding.BtnSwapNow.isEnabled = true
                 }
             })
     }
 
+    /**
+     * Updates the Google Map to display a marker at the given [locationName].
+     */
     private fun updateMapLocation(locationName: String?, markerTitle: String) {
         if (locationName.isNullOrBlank() || _binding == null || context == null) return
 
@@ -205,17 +239,60 @@ class DetailFragment : Fragment() {
                             .icon(customMarker)
                     )
                 } else {
-                    Log.w("DetailFragment", "주소 변환 실패 (updateMapLocation): $locationName")
+                    Toast.makeText(
+                        context,
+                        "Could not find '$locationName' on the map.",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
             } catch (e: IOException) {
-                Log.e("DetailFragment", "Geocoding IOException for $locationName", e)
-                Toast.makeText(context, "위치 정보를 변환하는 데 문제가 발생했습니다.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    context,
+                    "Could not display location: Network or I/O error.",
+                    Toast.LENGTH_SHORT
+                ).show()
             } catch (e: Exception) {
-                Log.e("DetailFragment", "Geocoding 기타 에러 for $locationName", e)
+                Toast.makeText(context, "Error displaying location on map.", Toast.LENGTH_SHORT)
+                    .show()
             }
         }
     }
-
+    private fun setupTemporaryRelatedItems() {
+        relatedItemsList.clear() // Clear previous items if any
+        val packageName = requireContext().packageName
+        val localImageUriForRelated1 = Uri.parse("android.resource://$packageName/${R.drawable.cloth_example3}").toString()
+        val localImageUriForRelated2 = Uri.parse("android.resource://$packageName/${R.drawable.cloth_example}").toString()
+        relatedItemsList.add(
+            Clothes(
+                id = "r1",
+                imageList = listOf(localImageUriForRelated2),
+                label = "Zip-up Hoodie",
+                name = "Letter Open Hoodie",
+                location = "Mapo-dong",
+                timeAgo = "1m ago",
+                likeCount = 5,
+                description = "A cool jacket similar to what you are viewing.",
+                swapMethod = "Shipping"
+            )
+        )
+        relatedItemsList.add(
+            Clothes(
+                id = "r2",
+                imageList = listOf(localImageUriForRelated1),
+                label = "Dress",
+                name = "Pink dress",
+                location = "Seokgyo-dong",
+                timeAgo = "1m ago",
+                likeCount = 5,
+                description = "A nice scarf that might go well.",
+                swapMethod = "In-person"
+            )
+        )
+        // Add more dummy items as needed
+    }
+    /**
+     * Displays an enlarged view of the selected image in a [Dialog].
+     */
     private fun showEnlargedImage(imageUrl: String) {
         if (context == null || _binding == null) return
         val dialog = Dialog(requireContext())

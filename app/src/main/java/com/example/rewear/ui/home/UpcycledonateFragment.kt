@@ -36,23 +36,23 @@ class UpcycledonateFragment : Fragment() {
             Notifications(
                 type = NotificationType.UPCYCLE,
                 userName = "Lee",
-                R.drawable.cloth_example,
-                title = "Layering T-shirt",
-                message = "",
-                timeAgo = "1m ago"
-            ),
-            Notifications(
-                type = NotificationType.UPCYCLE,
-                userName = "Hayan",
-                R.drawable.cloth_example,
+                imageResId = R.drawable.jeans,
                 title = "old jeans",
                 message = "",
                 timeAgo = "1m ago"
             ),
             Notifications(
                 type = NotificationType.UPCYCLE,
+                userName = "Hayan",
+                imageResId = R.drawable.shorts,
+                title = "white shorts",
+                message = "",
+                timeAgo = "1m ago"
+            ),
+            Notifications(
+                type = NotificationType.UPCYCLE,
                 userName = "hyo",
-                R.drawable.cloth_example,
+                imageResId = R.drawable.greendress,
                 title = "green dress",
                 message = "",
                 timeAgo = "1m ago"
@@ -60,7 +60,7 @@ class UpcycledonateFragment : Fragment() {
             Notifications(
                 type = NotificationType.UPCYCLE,
                 userName = "Lee",
-                R.drawable.cloth_example,
+                imageResId = R.drawable.checkedshirt,
                 title = "checked shirt",
                 message = "",
                 timeAgo = "1m ago"
@@ -68,7 +68,7 @@ class UpcycledonateFragment : Fragment() {
             Notifications(
                 type = NotificationType.UPCYCLE,
                 userName = "Amy",
-                R.drawable.cloth_example,
+                imageResId = R.drawable.skirt,
                 title = "blue skirt",
                 message = "",
                 timeAgo = "1m ago"
@@ -78,6 +78,7 @@ class UpcycledonateFragment : Fragment() {
             if (isAdded && view != null) {
                 val bundle = Bundle().apply {
                     putString("title", notification.title)
+                    putInt("imageResId", notification.imageResId)
                 }
                 findNavController().navigate(
                     R.id.action_upcycledonate_to_donateReformSelection,

@@ -30,6 +30,11 @@ class DonateReformSelectionFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val title = arguments?.getString("title") ?: ""
+        val imageResId = arguments?.getInt("imageResId", 0)
+
+        if (imageResId != null && imageResId != 0) {
+            binding.clothing.setImageResource(imageResId)
+        }
 
         binding.BtnClose.setOnClickListener {
 
@@ -39,12 +44,19 @@ class DonateReformSelectionFragment : Fragment() {
         binding.btnUpcycle.setOnClickListener {
             val bundle = Bundle().apply {
                 putString("title", title)
+                if (imageResId != null && imageResId != 0) {
+                    putInt("imageResId", imageResId)
+                }
             }
             findNavController().navigate(
                 R.id.action_donateReformSelectionFragment_to_reformItemsFragment,
                 bundle
             )
         }
+    }
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
 

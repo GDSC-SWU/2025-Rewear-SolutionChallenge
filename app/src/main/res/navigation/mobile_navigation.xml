@@ -43,8 +43,8 @@
             app:destination="@+id/navigation_home" />
 
         <action
-            android:id="@+id/action_choosingFragment_to_timeSelectingFragment"
-            app:destination="@+id/timeSelectingFragment" />
+            android:id="@+id/action_choosingFragment_to_swapConfirmedFragment"
+            app:destination="@+id/swapConfirmedFragment" />
     </fragment>
 
     <fragment

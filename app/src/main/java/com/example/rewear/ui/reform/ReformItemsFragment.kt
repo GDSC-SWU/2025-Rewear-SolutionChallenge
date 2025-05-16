@@ -67,7 +67,7 @@ class ReformItemsFragment : Fragment() {
                     bundle
                 )
             } else {
-                Toast.makeText(requireContext(), "옵션을 선택해주세요", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Select the option", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -108,7 +108,7 @@ class ReformItemsFragment : Fragment() {
         client.newCall(request).enqueue(object : Callback {
             override fun onFailure(call: Call, e: IOException) {
                 requireActivity().runOnUiThread {
-                    Toast.makeText(requireContext(), "서버 오류 발생", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "Sever Error", Toast.LENGTH_SHORT).show()
                 }
             }
 
@@ -119,9 +119,9 @@ class ReformItemsFragment : Fragment() {
                         val jsonResponse = JSONObject(body)
                         val recommendations = jsonResponse.getJSONArray("recommendations")
 
-                        val reform1 = recommendations.optString(0, "추천 없음 1")
-                        val reform2 = recommendations.optString(1, "추천 없음 2")
-                        val reform3 = recommendations.optString(2, "추천 없음 3")
+                        val reform1 = recommendations.optString(0, "No recommendation 1")
+                        val reform2 = recommendations.optString(1, "No recommendation 2")
+                        val reform3 = recommendations.optString(2, "No recommendation 3")
 
 
                         requireActivity().runOnUiThread {
@@ -147,7 +147,7 @@ class ReformItemsFragment : Fragment() {
                     } catch (e: JSONException) {
                         e.printStackTrace()
                         requireActivity().runOnUiThread {
-                            Toast.makeText(requireContext(), "응답 데이터 처리 오류", Toast.LENGTH_SHORT)
+                            Toast.makeText(requireContext(), "Error", Toast.LENGTH_SHORT)
                                 .show()
 
                         }

@@ -7,14 +7,12 @@ import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.text.method.ScrollingMovementMethod
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.view.isEmpty
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -82,10 +80,10 @@ class RegistrationFragment : Fragment() {
                     }
 
                     if (_binding != null) {
-                        galleryAdapter.notifyDataSetChanged() // 어댑터에 변경 알림
-                        updateImageCounter()                 // 이미지 카운터 업데이트
+                        galleryAdapter.notifyDataSetChanged()
+                        updateImageCounter()
                     }
-                    isImageSelected = selectedImageUris.isNotEmpty() // 이미지 선택 상태 업데이트
+                    isImageSelected = selectedImageUris.isNotEmpty()
 
 
                     if (selectedImageUris.isNotEmpty()) {
@@ -259,25 +257,24 @@ class RegistrationFragment : Fragment() {
                 "https://picsum.photos/id/2/400/300"
             )
             if (locationFromForm.isBlank()) {
-                Toast.makeText(requireContext(), "거래 희망 지역을 선택 또는 입력해주세요.", Toast.LENGTH_SHORT)
+                Toast.makeText(requireContext(), "Enter the address.", Toast.LENGTH_SHORT)
                     .show()
-                return@setOnClickListener // 주소가 없으면 등록 진행 중단
+                return@setOnClickListener
             }
 
             if (selectedImageUris.isEmpty()) {
-                Toast.makeText(requireContext(), "이미지를 하나 이상 선택해주세요.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Select the image", Toast.LENGTH_SHORT).show()
                 isImageSelected = false
                 updateSubmitButtonState()
                 return@setOnClickListener
             }
 
             if (title.isEmpty()) {
-                binding.titleEditText.error = "제목을 입력해주세요."
+                binding.titleEditText.error = "Enter the title"
                 return@setOnClickListener
             }
             if (selectedCategoryString.isBlank()) {
-                Toast.makeText(requireContext(), "카테고리를 선택해주세요.", Toast.LENGTH_SHORT).show()
-                // isCategorySelected = false; updateSubmitButtonState(); // 필요하다면 상태 업데이트
+                Toast.makeText(requireContext(), "Select Category.", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
@@ -289,7 +286,6 @@ class RegistrationFragment : Fragment() {
                 imageUrls = imageUrlsToSend
             )
 
-            Log.d("RegistrationFragment", "아이템 등록 요청: $createItemRequest")
             RetrofitClientApp.apiService.createItem(
                 address = locationFromForm,
                 itemRequest = createItemRequest
@@ -303,12 +299,6 @@ class RegistrationFragment : Fragment() {
                         if (response.isSuccessful && response.code() == 201) {
                             val newItemFromServer = response.body()
                             if (newItemFromServer != null) {
-                                Log.d("RegistrationFragment", "아이템 등록 성공: $newItemFromServer")
-                                Toast.makeText(
-                                    requireContext(),
-                                    "아이템이 성공적으로 등록되었습니다!",
-                                    Toast.LENGTH_SHORT
-                                ).show()
                                 val imageUrisForUiTest = if (selectedImageUris.isNotEmpty()) {
                                     selectedImageUris.map { uri -> uri.toString() }
                                 } else {
@@ -320,11 +310,11 @@ class RegistrationFragment : Fragment() {
                                     label = newItemFromServer.category,
                                     name = newItemFromServer.title,
                                     location = locationFromForm,
-                                    timeAgo = "방금 전",
+                                    timeAgo = "1m ago",
                                     likeCount = 0,
                                     description = newItemFromServer.description ?: "",
                                     swapMethod = newItemFromServer.swapMethod ?: selectedSwapMethod
-                                    ?: "정보 없음"
+                                    ?: ""
                                 )
 
                                 findNavController().previousBackStackEntry?.savedStateHandle?.set(
@@ -332,23 +322,12 @@ class RegistrationFragment : Fragment() {
                                 )
                                 findNavController().popBackStack()
 
-                            } else {
-                                Log.e("RegistrationFragment", "아이템 등록 후 응답 본문이 null입니다.")
-                                Toast.makeText(
-                                    requireContext(),
-                                    "아이템 등록에 성공했으나 응답 데이터가 없습니다.",
-                                    Toast.LENGTH_SHORT
-                                ).show()
                             }
                         } else {
-                            val errorBody = response.errorBody()?.string() ?: "알 수 없는 에러"
-                            Log.e(
-                                "RegistrationFragment",
-                                "아이템 등록 API 실패: ${response.code()} - $errorBody"
-                            )
+                            val errorBody = response.errorBody()?.string() ?: "Unknown error"
                             Toast.makeText(
                                 requireContext(),
-                                "아이템 등록에 실패했습니다. (코드: ${response.code()})",
+                                "Fail to register an item. (CODE: ${response.code()})",
                                 Toast.LENGTH_LONG
                             ).show()
                         }
@@ -356,10 +335,9 @@ class RegistrationFragment : Fragment() {
 
                     override fun onFailure(call: Call<ItemResponse>, t: Throwable) {
                         hideLoadingDialog()
-                        Log.e("RegistrationFragment", "아이템 등록 네트워크 오류: ${t.message}", t)
                         Toast.makeText(
                             requireContext(),
-                            "네트워크 오류가 발생했습니다: ${t.message}",
+                            "Network error: ${t.message}",
                             Toast.LENGTH_LONG
                         ).show()
                     }
@@ -408,7 +386,6 @@ class RegistrationFragment : Fragment() {
 
         val file = getFileFromUri(uri)
         if (file == null) {
-            Log.e("File Error", "파일 변환 실패 (classifyClothingImage)")
             hideLoadingDialog()
 
             hasAiProcessingStarted = false
@@ -437,14 +414,11 @@ class RegistrationFragment : Fragment() {
 
                     if (response.isSuccessful) {
                         val categoryFromAI = response.body()?.category ?: "Unknown"
-                        Log.d("RegistrationFragment", "AI로부터 받은 카테고리: $categoryFromAI")
                         lastProcessedCategory = categoryFromAI
                         binding.categoryEditText.setText(lastProcessedCategory)
                         isCategorySelected = true
                         updateSubmitButtonState()
                         binding.category.setBackgroundResource(R.drawable.category_bg_selected)
-                    } else {
-                        Log.e("AI Error", "분류 실패: ${response.code()}")
                         lastProcessedCategory = null
                         binding.categoryEditText.text = null
                         isCategorySelected = false
@@ -457,7 +431,6 @@ class RegistrationFragment : Fragment() {
                     hideLoadingDialog()
                     if (_binding == null) return
 
-                    Log.e("API Failure", "통신 실패: ${t.message}")
                     lastProcessedCategory = null
                     binding.categoryEditText.text = null
                     isCategorySelected = false
@@ -474,7 +447,6 @@ class RegistrationFragment : Fragment() {
             tempFile.outputStream().use { output -> inputStream.copyTo(output) }
             tempFile
         } catch (e: Exception) {
-            Log.e("File Error", "URI 변환 실패 : ${e.message}")
             null
         }
     }
