@@ -1,4 +1,5 @@
 # 👕 2025-Rewear-SolutionChallenge
+![Image](https://github.com/user-attachments/assets/6b8b7023-9b7b-4acd-b86f-30c6e2f5326d)
 
 ## 📢 Project Introduction
 **Rewear is a platform that promotes sustainable consumption by reducing fast fashion waste through clothing exchange and an upcycling service that provides job opportunities for career-discontinued women.**
@@ -19,6 +20,7 @@ To solve this problems, we need to foster a culture of clothing exchange, upcycl
 ## 📹 Demo Video
 
 ## 🛠 Technology Stack
+![Image](https://github.com/user-attachments/assets/9076b913-c8fc-4de8-a9d0-cc2b677e4938)
 
 ## 📱 How to Start
 
