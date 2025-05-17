@@ -20,6 +20,7 @@ Fast fashion refers to the business of rapidly producing and selling large quant
 To solve this problems, we need to foster a culture of clothing exchange, upcycling, and reuse instead of disposal.
 
 ## 📹 Demo Video
+[![Video Label](https://github.com/user-attachments/assets/eec6b053-5099-4c91-8e51-6cbcd0f991ce)](https://www.youtube.com/watch?v=X0RHIFljZlA)
 
 ## 🛠 Technology Stack
 ![Image](https://github.com/user-attachments/assets/9076b913-c8fc-4de8-a9d0-cc2b677e4938)
