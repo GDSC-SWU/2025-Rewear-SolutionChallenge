@@ -296,7 +296,9 @@ class RegistrationFragment : Fragment() {
                         response: Response<ItemResponse>
                     ) {
                         hideLoadingDialog()
-                        if (response.isSuccessful && response.code() == 201) {
+                        if (_binding == null) return
+
+                        if (response.isSuccessful) {
                             val newItemFromServer = response.body()
                             if (newItemFromServer != null) {
                                 val imageUrisForUiTest = if (selectedImageUris.isNotEmpty()) {

@@ -103,7 +103,6 @@ class HomeFragment : Fragment() {
                 "In-person Trade"
             ),
 
-            // Add or modify other items as needed
         )
     }
 
